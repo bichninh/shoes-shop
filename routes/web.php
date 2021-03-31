@@ -24,3 +24,9 @@ Route::get('/dashboard',[AdminController::class,'show_dashboard']);
 Route::post('/admin-dashboard',[AdminController::class,'dashboard']);
 Route::get('/logout',[AdminController::class,'logout']);
 Route::get('/category',[CategoryController ::class, 'show']);
+Route::get('/add_category',[CategoryController ::class, 'create']);
+
+Route::get('/edit_category',[CategoryController ::class, 'edit']);
+Route::post('/store-category',[CategoryController ::class, 'store']);
+Route::get('/delete-category',[CategoryController ::class, 'form_delete']);
+Route::post('/delete',[CategoryController ::class, 'destroy']);
