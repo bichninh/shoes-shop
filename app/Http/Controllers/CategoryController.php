@@ -46,28 +46,37 @@ class CategoryController extends Controller
     
         
     }
-    public function edit(){
-     
-        return view('admin.category.edit_category');
+    public function edit($id){
+       $edit_category =  DB::table('categories')->where('id',$id)->get();
+       $a= view('admin.category.edit_category')->with('edit_category', $edit_category);
+    
+       return view('admin_layout')->with('admin.category.edit_category', $a);
         }
-    public function update(Request $request){
+    public function update( Request $request, $id ){
 
-
+        $data= array();
+        $data['name']= $request->name;
+        $data['category_id']= $request->category_id;
+    
+        DB::table('categories')->Where ('id', $id)->update($data);
+        return redirect()->back()->with('message', "Cập nhật sản phẩm thành công ");
+        
         }
     public function form_delete(){
 
         return view('admin.category.delete_category');
     }    
-   public function destroy(Request $request){
+   public function delete($id){
 
         //kiem tra xem trong danh muc co ton tai không
        // $id = $request->input('id');
-        $id = Category::find($id);
-        $name = $id->name;
-        $category_id= $id->category_id;
-        if($id->delete()){
-            return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
-        }
-    
+        //$id = Category::find($id);
+        //$name = $id->name;
+       // $category_id= $id->category_id;
+       // if($id->delete()){
+       //     return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
+       // }
+       DB::table('categories')->where('id',$id)->delete($id);
+       return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
     }
 }

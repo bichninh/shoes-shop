@@ -5,16 +5,18 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Chỉnh sửa danh mục sản phẩm
+                            Cập nhật danh mục sản phẩm
                         </header>
                         <div class="panel-body">
-                            <div class="position-center">
-                                <form role="form">
+                            @foreach( $edit_category as  $key => $edit)
+                            <div class="pos ition-center">
+                                <form role="form" action="{{ URL::to('/update-category/'.$edit->id)}}" method="post">
+                                {{ csrf_field() }}  
                                 <div class="form-group">
                                     <label for="name">Tên danh mục</label>
-                                    <input id="name" type="text" class=" form-control @error('name') is-invalid @enderror" placeholder="NAME" name="name" required autocomplete="name">
+                                    <input id="name" type="text" value="{{ $edit->name }}" class=" form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name">
 
-                                    @error('password')
+                                    @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -22,9 +24,9 @@
                                    <!-- <input type="text" class="form-control" id="name" placeholder="name"> -->
                                 </div>
                                 <div class="form-group">
-                                    <label for="category_id">Thư mục con</label>
-                                    <input id="category_id" type="text" class=" form-control @error('category_id') is-invalid @enderror" placeholder="THU MUC" name="category_id" required autocomplete="category_id">
-                                    @error('password')
+                                    <label for="category_id">Thư mục cha</label>
+                                    <input id="category_id" type="text" value="{{ $edit->category_id }}" class=" form-control @error('category_id') is-invalid @enderror"   name="category_id" required autocomplete="category_id">
+                                    @error('category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -37,9 +39,14 @@
                                     </label>
                                 </div>
                                 <button type="submit" class="btn btn-info">Edit</button>
+                                @if (session('message'))
+                            <div class="alert alert-success">
+                               <p>{{ session('message') }}</p>
+                             </div>
+                               @endif
                             </form>
                             </div>
-
+                         @endforeach
                         </div>
                     </section>
 

@@ -5,31 +5,22 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Thên danh mục sản phẩm
+                            Thêm thương hiệu sản phẩm
                         </header>
                         <div class="panel-body">
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/store-category')}}" method="post">
+                                <form role="form" action="{{URL::to('/store-brand')}}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name">Tên danh mục</label>
-                                    <input id="name" type="text" class=" form-control @error('name') is-invalid @enderror" placeholder="NAME" name="name" required autocomplete="name">
+                                    <label for="brand_name">Tên thương hiệu</label>
+                                    <input id="brand_name" type="text" class=" form-control @error('brand_name') is-invalid @enderror" placeholder="NAME" name="brand_name" required autocomplete="brand_name">
 
-                                    @error('name')
+                                    @error('brand_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                    @enderror
                                    <!-- <input type="text" class="form-control" id="name" placeholder="name"> -->
-                                </div>
-                                <div class="form-group">
-                                    <label for="category_id">Thư mục cha</label>
-                                    <input id="category_id" type="text" class=" form-control @error('category_id') is-invalid @enderror" placeholder="THU MUC" name="category_id" required autocomplete="category_id">
-                                    @error('category_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                   @enderror
                                 </div>
                                 
                                 <div class="checkbox">
