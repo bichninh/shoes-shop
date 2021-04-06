@@ -38,7 +38,7 @@
                                         <input type="checkbox"> Check me out
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-info">Edit</button>
+                                <button type="submit" class="btn btn-info">Update</button>
                                 @if (session('message'))
                             <div class="alert alert-success">
                                <p>{{ session('message') }}</p>

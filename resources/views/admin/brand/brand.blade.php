@@ -29,7 +29,7 @@
                               <td>{{$brand->created_at}}</td>
                               <td>
                               <button class='btn btn-success btn-sm edit btn-flat' ><i class='fa fa-edit'></i> <a  href="{{URL::to('/edit-brand/'.$brand->brand_id)}}" >Edit</a></button>
-                              <button  class='btn btn-danger btn-sm delete btn-flat' ><i class='fa fa-trash'></i><a onclick="return confirm('Are you sure to delete?')" href="{{URL::to('/delete-brand/'.$category->brand_id)}}"> Delete</a></button>
+                              <button  class='btn btn-danger btn-sm delete btn-flat' ><i class='fa fa-trash'></i><a onclick="return confirm('Are you sure to delete?')" href="{{URL::to('/delete-brand/'.$brand->brand_id)}}"> Delete</a></button>
                               </td>
                          </tr>
                      @endforeach

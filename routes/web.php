@@ -3,6 +3,8 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,10 +32,17 @@ Route::post('/store-category',[CategoryController ::class, 'store']);
 Route::get('/edit-category/{id}',[CategoryController ::class, 'edit']);
 Route::post('/update-category/{id}',[CategoryController ::class, 'update']);
 Route::get('/delete-category/{id}',[CategoryController ::class, 'delete']);
-//brands
-Route::get('/brand',[CategoryController ::class, 'show']);
-Route::get('/add_brand',[CategoryController ::class, 'create']);
-Route::post('/store-brand',[CategoryController ::class, 'store']);
-Route::get('/edit-brand/{brand_id}',[CategoryController ::class, 'edit']);
-Route::post('/update-brand/{brand_id}',[CategoryController ::class, 'update']);
-Route::get('/delete-brand/{brand_id}',[CategoryController ::class, 'delete']);
+//brand
+Route::get('/brand',[BrandController ::class, 'show']);
+Route::get('/add_brand',[BrandController ::class, 'create']);
+Route::post('/store-brand',[BrandController ::class, 'store']);
+Route::get('/edit-brand/{brand_id}',[BrandController ::class, 'edit']);
+Route::post('/update-brand/{brand_id}',[BrandController ::class, 'update']);
+Route::get('/delete-brand/{brand_id}',[BrandController ::class, 'delete']);
+//product
+Route::get('/product',[ProductController ::class, 'show']);
+Route::get('/add_product',[ProductController ::class, 'create']);
+Route::post('/store-product',[ProductController ::class, 'store']);
+Route::get('/edit-product/{id}',[ProductController ::class, 'edit']);
+Route::post('/update-product/{id}',[ProductController ::class, 'update']);
+Route::get('/delete-product/{id}',[ProductController ::class, 'delete']);

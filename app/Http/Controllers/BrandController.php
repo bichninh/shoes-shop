@@ -11,7 +11,7 @@ class BrandController extends Controller
 {
     private $cate;
     public function show(){
-        $brands = brand::paginate(10);
+        $brands = brand::paginate(5);
       return view(
           'admin.brand.brand',
           ['brands' => $brands]
@@ -44,7 +44,7 @@ class BrandController extends Controller
         
     }
     public function edit($brand_id){
-       $edit_brand =  DB::table('brands')->where('id',$brand_id)->get();
+       $edit_brand =  DB::table('brands')->where('brand_id',$brand_id)->get();
        $a= view('admin.brand.edit_brand')->with('edit_brand', $edit_brand);
     
        return view('admin_layout')->with('admin.brand.edit_brand', $a);
@@ -59,14 +59,9 @@ class BrandController extends Controller
         return redirect()->back()->with('message', "Cập nhật thành công ");
         
         }
-    //public function form_delete(){
-
-     //   return view('admin.category.delete_category');
-   // }    
-   public function delete($brand_id){
-
-      
-       DB::table('brands')->where('brand_id',$brand_id)->delete($brand_id);
-       return redirect()->back()->with('message', "Xóa thành công ");
-    }
+     
+        public function delete($id){
+           DB::table('brands')->where('brand_id',$id)->delete($id);
+           return redirect()->back()->with('message', "Xóa thành công ");
+        }
 }

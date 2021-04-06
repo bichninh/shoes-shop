@@ -62,6 +62,7 @@
                             <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                             <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="#"><i class="fa fa-lock"></i> Register</a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,6 +92,7 @@
                                     <li><a href="#">Checkout</a></li>
                                     <li><a href="#">Cart</a></li>
                                     <li><a href="#">Login</a></li>
+                                   
                                 </ul>
                             </li>
                             

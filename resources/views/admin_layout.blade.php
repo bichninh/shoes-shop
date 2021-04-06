@@ -4,7 +4,7 @@
 <title>Admin-DashBoard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
@@ -17,10 +17,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="css/font.css" type="text/css"/>
-<link href="{{asset('backend/css/font-awesome.css')}}" rel="stylesheet"> 
+<link href="{{asset('backend/css/font-awesome.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('backend/css/morris.css')}}" type="text/css"/>
 <!-- calendar -->
 <link rel="stylesheet" href="{{asset('backend/css/monthly.css')}}">
+<link href="{{asset('frontend/css/font-awesome.min.css')}}" rel="stylesheet">
 <!-- //calendar -->
 <!-- //font-awesome icons -->
 <script src="{{asset('backend/js/jquery2.0.3.min.js')}}"></script>
@@ -73,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
         </li>
         <!-- user login dropdown end -->
-       
+
     </ul>
     <!--search & user info end-->
 </div>
@@ -91,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Dashboard-Tổng quan</span>
                     </a>
                 </li>
-                
+
                 <li class="sub-menu" >
                     <a href="{{URL::to('/category')}}">
                         <i class="fa fa-book"></i>
@@ -100,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- <ul class="sub">
 						<li><a href="#">Liệt kê danh mục</a></li>
 						<li><a href="#">Thêm danh mục</a></li>
-                        
+
                     </ul> -->
                 </li>
                 <li class="sub-menu" >
@@ -110,26 +111,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                 </li>
 				<li class="sub-menu" >
-                    <a href="{{URL::to('/category')}}">
+                    <a href="{{URL::to('/product')}}">
                         <i class="fa fa-book"></i>
                         <span>Sản phẩm</span>
                     </a>
                 </li>
                 <li class="sub-menu" >
-                    <a href="{{URL::to('/category')}}">
-                        <i class="fa fa-book"></i>
+                    <a href="#">
+                        <i class="fa fa-user"></i>
                         <span>Người dùng</span>
                     </a>
                 </li>
 				<li class="sub-menu" >
-                    <a href="{{URL::to('/category')}}">
+                    <a href="#">
                         <i class="fa fa-book"></i>
                         <span>Đơn hàng</span>
                     </a>
                 </li>
-               
-                
-            </ul>            </div>
+              </ul>
+
+        </div>
         <!-- sidebar menu end-->
     </div>
 </aside>
@@ -137,9 +138,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper">
-	
+
 <h3>Welcome Admin</h3>
-@yield('admin_content')	
+@yield('admin_content')
 		<!-- //market-->
 	<!--	<div class="market-updates">
 			<div class="col-md-3 market-update-gd">
@@ -149,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					 <div class="col-md-8 market-update-left">
 					 <h4>Danh muc san pham</h4>
-					
+
 				  </div>
 				  <div class="clearfix"> </div>
 				</div>
@@ -161,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-8 market-update-left">
 					<h4>Users</h4>
-						
+
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
@@ -179,24 +180,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-3 market-update-gd">
-			
+
 				<div class="market-update-block clr-block-4">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-8 market-update-left">
 						<h4>Orders</h4>
-						
+
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
 			</div>
 		   <div class="clearfix"> </div>
-		</div>	
-		 <!--market--> 
-	
-		
-			
+		</div>
+		 <!--market-->
+
+
+
 
 
 
@@ -204,7 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </section>
  <!-- footer -->
- 
+
 		  <div class="footer">
 			<div class="wthree-copyright">
 			  <p>Website shopgiay</a></p>
@@ -222,7 +223,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{asset('backend/js/jquery.nicescroll.js')}}"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="{{asset('backend/js/jquery.scrollTo.js')}}"></script>
-<!-- morris JavaScript -->	
+<!-- morris JavaScript -->
 
 
 </body>

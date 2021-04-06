@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
-{   private $cate;
+{   
+    private $cate;
     public function show(){
-        $categories = Category::paginate(10);
+        $categories = Category::paginate(5);
       return view(
           'admin.category.category',
           ['categories' => $categories] 

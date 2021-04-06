@@ -28,7 +28,7 @@
                               <td>{{$category->name}}</td>
                               <td>{{$category->created_at}}</td>
                               <td>
-                              <button class='btn btn-success btn-sm edit btn-flat' ><i class='fa fa-edit'></i> <a  href="{{URL::to('/edit-category/'.$category->id)}}" >Edit</a></button>
+                              <button class='btn btn-success btn-sm edit btn-flat'  ><i class='fa fa-edit'></i> <a  href="{{URL::to('/edit-category/'.$category->id)}}" >Edit</a></button>
                               <button  class='btn btn-danger btn-sm delete btn-flat' ><i class='fa fa-trash'></i><a onclick="return confirm('Are you sure to delete?')" href="{{URL::to('/delete-category/'.$category->id)}}"> Delete</a></button>
                               </td>
                          </tr>
