@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {   
     private $cate;
+     
     public function show(){
         $categories = Category::paginate(5);
       return view(
@@ -77,7 +78,7 @@ class CategoryController extends Controller
        // if($id->delete()){
        //     return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
        // }
-       DB::table('categories')->where('id',$id)->delete($id);
+       DB::table('categories')->where('id',$id)->delete();
        return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
     }
 }

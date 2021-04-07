@@ -6,7 +6,7 @@
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                        <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                        <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                         <h2>200.000</h2>
                         <p>Sneaker Y124</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -52,7 +52,7 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
-                                <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                 <h2>200.000</h2>
                                 <p>Sneaker Y124</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -68,7 +68,7 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
-                                <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                 <h2>200.000</h2>
                                 <p>Sneaker Y124</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -90,7 +90,7 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
-                                <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                 <h2>200.000</h2>
                                 <p>abc</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -106,7 +106,7 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
-                                <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                 <h2>$56</h2>
                                 <p>Easy Polo Black Edition</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -138,7 +138,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                    <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                     <h2>200.000</h2>
                                     <p>Adidas134</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -151,7 +151,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                    <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                     <h2>300.000</h2>
                                     <p>Adidas134</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -164,7 +164,46 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" />
+                                    <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
+                                    <h2>300.000</h2>
+                                    <p>Adidas134</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
+                                    <h2>300.000</h2>
+                                    <p>Adidas134</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
+                                    <h2>300.000</h2>
+                                    <p>Adidas134</p>
+                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
                                     <h2>300.000</h2>
                                     <p>Adidas134</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>

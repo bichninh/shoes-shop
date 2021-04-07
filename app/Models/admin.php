@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class size extends Model
+class admin extends Model
 {
     use HasFactory;
-    protected $table ='sizes';
+    protected $table ='admin';
     protected $fillable = [
-        'name',
-         ];
-
+        'username',
+        'email',
+        'password',
+        'phone',
+        
+        
+    ];
 }

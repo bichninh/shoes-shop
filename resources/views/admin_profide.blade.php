@@ -5,12 +5,12 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Chỉnh sửa thông tin người dùng
+                            Chỉnh sửa thông tin cá nhân
                         </header>
                         <div class="panel-body">
-                       @foreach($edit_user as $key =>$edit)
+                       @foreach($edit_admin as $key =>$edit)
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/update-user/'.$edit->id)}}" method="post">
+                                <form role="form" action="{{URL::to('/update-profide/'.$edit->id)}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="username">UserName</label>
@@ -50,15 +50,7 @@
                                     </span>
                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input id="address" type="text" value="{{$edit->address}}" class=" form-control @error('address') is-invalid @enderror"  name="address" required autocomplete="address">
-                                    @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                   @enderror
-                                </div>
+                               
                                
                                
                               

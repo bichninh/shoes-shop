@@ -61,7 +61,7 @@ class BrandController extends Controller
         }
      
         public function delete($id){
-           DB::table('brands')->where('brand_id',$id)->delete($id);
+           DB::table('brands')->where('brand_id',$id)->delete();
            return redirect()->back()->with('message', "Xóa thành công ");
         }
 }

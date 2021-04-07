@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +18,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//home
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/trang-chu', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 // backend
 Route::get('/admin',[AdminController::class,'index']);
 Route::get('/dashboard',[AdminController::class,'show_dashboard']);
 Route::post('/admin-dashboard',[AdminController::class,'dashboard']);
 Route::get('/logout',[AdminController::class,'logout']);
+//Route::get('/edit-profide/{id}',[AdminController ::class, 'edit']);
+//Route::post('/update-profide/{id}',[AdminController ::class, 'update']);
 //category
 Route::get('/category',[CategoryController ::class, 'show']);
 Route::get('/add_category',[CategoryController ::class, 'create']);
@@ -46,3 +49,12 @@ Route::post('/store-product',[ProductController ::class, 'store']);
 Route::get('/edit-product/{id}',[ProductController ::class, 'edit']);
 Route::post('/update-product/{id}',[ProductController ::class, 'update']);
 Route::get('/delete-product/{id}',[ProductController ::class, 'delete']);
+//user
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/user',[UserController ::class, 'show']);
+Route::get('/add_user',[UserController ::class, 'create']);
+Route::post('/store-user',[UserController ::class, 'store']);
+Route::get('/edit-user/{id}',[UserController ::class, 'edit']);
+Route::post('/update-user/{id}',[UserController ::class, 'update']);
+Route::get('/delete-user/{id}',[UserController ::class, 'delete']);

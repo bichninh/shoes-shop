@@ -31,7 +31,10 @@
                            </tr>
                        </thead>
                         <tbody>
+                     
+                         
                             @foreach($products as  $product)
+                           
                             <tr>
                               <th >{{$product->id}}</th>
                               <td>{{$product->name}}</td>
@@ -39,7 +42,8 @@
                               <td>{{$product->brand_id}}</td>
                               <td>{{$product->size_id}}</td>
                               <td>{{$product->color_id}}</td>
-                              <td>{{$product->image}}</td>
+                              <td><img src="{{asset('frontend/images/'.$product->image)}}" class="img-responsive" width="100px" alt="">{{$product->image}}</td>
+                              
                               <td>{{$product->price}}</td>
                               <td>{{$product->price_new}}</td>
                               <td>{{$product->quantily}}</td>

@@ -84,7 +84,7 @@
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="{{URL::to('/trang-chu')}}" class="active">Home</a></li>
+                            <li><a href="{{URL::to('/home')}}" class="active">Home</a></li>
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="#">Products</a></li>
@@ -183,29 +183,22 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
-                    <h2>Category</h2>
+                    <h2>Danh mục sản phẩm</h2>
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        
+                        @foreach($category as $key => $categories)
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordian" href="#mens">
                                         <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        Mens
+                                        {{$categories->name}}
                                     </a>
                                 </h4>
                             </div>
-                            <div id="mens" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Fendi</a></li>
-                                        
-                                    </ul>
-                                </div>
-                            </div>
+                           
                         </div>
 
-                        <div class="panel panel-default">
+                        <!--<div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordian" href="#womens">
@@ -214,38 +207,37 @@
                                     </a>
                                 </h4>
                             </div>
-                            <div id="womens" class="panel-collapse collapse">
+                           <div id="womens" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <ul>
                                         <li><a href="#">Fendi</a></li>
                                         
                                     </ul>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title"><a href="#">Kids</a></h4>
                             </div>
-                        </div>
+                        </div>  -->
                        
                        
                        
-                        
+                        @endforeach
                       
                        
                     </div><!--/category-products-->
 
                     <div class="brands_products"><!--brands_products-->
-                        <h2>Brands</h2>
+                        <h2>Thương hiệu</h2>
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="#"> <span class="pull-right">(50)</span>Nike</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Adidas</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Converse</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Biti's</a></li>
-                                <li><a href="#"> <span class="pull-right">(56)</span>Fendi</a></li>
+                            @foreach($brand as $key => $brand_product)
+                                <li><a href="#"> <span class="pull-right">(50)</span>{{$brand_product->brand_name}}</a></li>
                                 
+                                @endforeach
+                         
                         </div>
                     </div><!--/brands_products-->
 
@@ -258,7 +250,7 @@
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="{{asset('public/frontend/images/slide1.jpg')}}" alt="" /> 
+                        <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" /> 
                     </div><!--/shipping-->
 
                 </div>

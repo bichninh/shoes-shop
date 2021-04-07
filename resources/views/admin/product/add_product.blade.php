@@ -24,7 +24,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="category_id">Danh mục</label>
-                                    <input id="category_id" type="text" class=" form-control @error('category_id') is-invalid @enderror" placeholder="DANH MUC" name="category_id" required autocomplete="category_id">
+                                    <select name="category_id" class="form-control input-sm m-bot15"> 
+                                    <option value="0"> </option>
+                                    <option value ="1"> #</option>
+                                        </select>
+                                   <!-- <input id="category_id" type="text" class=" form-control @error('category_id') is-invalid @enderror" placeholder="DANH MUC" name="category_id" required autocomplete="category_id"> -->
+                                    
                                     @error('category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

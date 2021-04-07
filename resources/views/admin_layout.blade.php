@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                 </li>
                 <li class="sub-menu" >
-                    <a href="#">
+                    <a href="{{URL::to('/user')}}">
                         <i class="fa fa-user"></i>
                         <span>Người dùng</span>
                     </a>
@@ -126,6 +126,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="#">
                         <i class="fa fa-book"></i>
                         <span>Đơn hàng</span>
+                    </a>
+                </li>
+                <li class="sub-menu" >
+                    <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Chi tiêt các đơn hàng</span>
                     </a>
                 </li>
               </ul>
