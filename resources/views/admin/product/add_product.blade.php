@@ -12,10 +12,10 @@
                                 <form role="form" action="{{URL::to('/store-product')}}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name">Tên sản phẩm</label>
-                                    <input id="name" type="text" class=" form-control @error('name') is-invalid @enderror" placeholder="NAME" name="name" required autocomplete="name">
+                                    <label for="product_name">Tên sản phẩm</label>
+                                    <input id="product_name" type="text" class=" form-control @error('product_name') is-invalid @enderror" placeholder="NAME" name="product_name" required autocomplete="product_name">
 
-                                    @error('name')
+                                    @error('product_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -25,9 +25,10 @@
                                 <div class="form-group">
                                     <label for="category_id">Danh mục</label>
                                     <select name="category_id" class="form-control input-sm m-bot15"> 
-                                    <option value="0"> </option>
-                                    <option value ="1"> #</option>
-                                        </select>
+                                    @foreach($cate_product as $key => $cate )
+                                    <option value="{{$cate->id}}">{{$cate->name}} </option>
+                                    @endforeach
+                                    </select>
                                    <!-- <input id="category_id" type="text" class=" form-control @error('category_id') is-invalid @enderror" placeholder="DANH MUC" name="category_id" required autocomplete="category_id"> -->
                                     
                                     @error('category_id')
@@ -38,7 +39,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="brand_id">Thương hiệu</label>
-                                    <input id="brand_id" type="text" class=" form-control @error('brand_id') is-invalid @enderror" placeholder="THƯƠNG HIỆU" name="brand_id" required autocomplete="brand_id">
+                                    <select name="brand_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($brand_product as $key => $brand)
+                                    <option value="{{$brand->brand_id}}">{{$brand->brand_name}} </option>
+                                    @endforeach
+                                    </select>
+                                   
                                     @error('brand_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -47,7 +53,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="size_id">Size</label>
-                                    <input id="size_id" type="text" class=" form-control @error('size_id') is-invalid @enderror" placeholder="SIZE" name="size_id" required autocomplete="size_id">
+                                    <select name="size_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($size_product as $key => $size)
+                                    <option value="{{$size->id}}">{{$size->size_name}} </option>
+                                    @endforeach
+                                    </select>
                                     @error('size_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -56,7 +66,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="color_id">Màu sắc</label>
-                                    <input id="color_id" type="text" class=" form-control @error('color_id') is-invalid @enderror" placeholder="MÀU" name="color_id" required autocomplete="color_id">
+                                    <select name="color_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($color_product as $key => $color)
+                                    <option value="{{$color->id}}">{{$color->color_name}} </option>
+                                    @endforeach
+                                    </select>
                                     @error('color_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

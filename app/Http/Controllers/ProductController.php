@@ -11,22 +11,30 @@ class ProductController extends Controller
    
     private $cate;
     public function show(){
-        $products = product::paginate(5);
-        
+        //$products = product::paginate(5);
+        $products =DB::table('products')
+        ->join('categories','categories.id','=','products.category_id')
+        ->join('brands','brands.brand_id','=','products.brand_id')
+        ->join('sizes','sizes.id','=','products.size_id')
+        ->join('colors','colors.id','=','products.color_id')
+        ->orderby('products.id','asc')->get();
       return view(
           'admin.product.product',
           ['products' => $products] 
       );
          }
     public function create(){
-     
-    return view('admin.product.add_product');
+     $cate_product = DB::table('categories')->orderby('id','asc')->get();
+     $brand_product = DB::table('brands')->orderby('brand_id','asc')->get();
+     $size_product= DB::table('sizes')->orderby('id','asc')->get();
+     $color_product=DB::table('colors')->orderby('id','asc')->get();
+    return view('admin.product.add_product')->with('cate_product',$cate_product)->with('brand_product',$brand_product)->with('size_product',$size_product)->with('color_product',$color_product);
 
     }
     public function store(Request $request){ 
         
      $request->validate([
-        "name" => "required",
+        "product_name" => "required",
         "category_id" => "required",
         "brand_id" => "required",
         "size_id" => "required",
@@ -40,7 +48,7 @@ class ProductController extends Controller
 
 
     ],[
-        "name.required" => "Bạn chưa nhập name",
+        "product_name.required" => "Bạn chưa nhập name",
         "category_id.required" => "Bạn chưa nhập ",
         "brand_id.required" => "Bạn chưa nhập ",
         "size_id.required" => "Bạn chưa nhập ",
@@ -55,7 +63,7 @@ class ProductController extends Controller
      
       
     $cate               = new product;
-    $cate->name         = $request->name;
+    $cate->product_name         = $request->product_name;
     $cate->category_id  = $request->category_id;
     $cate->brand_id     = $request->brand_id;
     $cate->size_id      = $request->size_id;
@@ -73,15 +81,20 @@ class ProductController extends Controller
         
     }
     public function edit($id){
+        $cate_product = DB::table('categories')->orderby('id','asc')->get();
+        $brand_product = DB::table('brands')->orderby('brand_id','asc')->get();
+        $size_product= DB::table('sizes')->orderby('id','asc')->get();
+        $color_product=DB::table('colors')->orderby('id','asc')->get();
         $edit_product =  DB::table('products')->where('id',$id)->get();
-        $a= view('admin.product.edit_product')->with('edit_product', $edit_product);
+        
+        $a= view('admin.product.edit_product')->with('edit_product', $edit_product)->with('cate_product',$cate_product)->with('brand_product',$brand_product)->with('size_product',$size_product)->with('color_product',$color_product);;
      
         return view('admin_layout')->with('admin.product.edit_product', $a);
          }
      public function update( Request $request, $id ){
  
          $data= array();
-         $data['name']= $request->name;
+         $data['product_name']= $request->product_name;
          $data['category_id']= $request->category_id;
          $data['brand_id']= $request->brand_id;
          $data['size_id']= $request->size_id;

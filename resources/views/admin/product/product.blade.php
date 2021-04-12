@@ -37,11 +37,11 @@
                            
                             <tr>
                               <th >{{$product->id}}</th>
+                              <td>{{$product->product_name}}</td>
                               <td>{{$product->name}}</td>
-                              <td>{{$product->category_id}}</td>
-                              <td>{{$product->brand_id}}</td>
-                              <td>{{$product->size_id}}</td>
-                              <td>{{$product->color_id}}</td>
+                              <td>{{$product->brand_name}}</td>
+                              <td>{{$product->size_name}}</td>
+                              <td>{{$product->color_name}}</td>
                               <td><img src="{{asset('frontend/images/'.$product->image)}}" class="img-responsive" width="100px" alt="">{{$product->image}}</td>
                               
                               <td>{{$product->price}}</td>
@@ -57,7 +57,7 @@
                      @endforeach
                    </tbody>
                 </table> 
-                <div class="d-flex justify-content-center">{{$products->links()}}</div>
+                <div class="d-flex justify-content-center"></div>
 
           </div>
           

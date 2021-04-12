@@ -13,10 +13,10 @@
                                 <form role="form" action="{{URL::to('/update-product/'.$edit->id)}}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="name">Tên sản phẩm</label>
-                                    <input id="name" type="text" value="{{$edit->name}} "class=" form-control @error('name') is-invalid @enderror" name="name" required autocomplete="name">
+                                    <label for="product_name">Tên sản phẩm</label>
+                                    <input id="product_name" type="text" value="{{$edit->product_name}} "class=" form-control @error('product_name') is-invalid @enderror" name="product_name" required autocomplete="product_name">
 
-                                    @error('name')
+                                    @error('product_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -25,7 +25,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="category_id">Danh mục</label>
-                                    <input id="category_id" type="text" value="{{$edit->category_id}}"  class=" form-control @error('category_id') is-invalid @enderror" placeholder="DANH MUC" name="category_id" required autocomplete="category_id">
+                                    <select name="category_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($cate_product as $key => $cate )
+                                    @if($cate->id== $edit->category_id)
+                                    <option selected value="{{$cate->id}}">{{$cate->name}} </option>
+                                    @else
+                                    <option value="{{$cate->id}}">{{$cate->name}} </option>
+                                    @endif
+                                    @endforeach
+                                    </select>
                                     @error('category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -34,7 +42,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="brand_id">Thương hiệu</label>
-                                    <input id="brand_id" type="text" value="{{$edit->brand_id}}  "class=" form-control @error('brand_id') is-invalid @enderror" placeholder="THƯƠNG HIỆU" name="brand_id" required autocomplete="brand_id">
+                                    <select name="brand_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($brand_product as $key => $brand)
+                                    @if($brand->brand_id== $edit->brand_id)
+                                    <option selected value="{{$brand->brand_id}}">{{$brand->brand_name}} </option>
+                                    @else
+                                    <option value="{{$brand->brand_id}}">{{$brand->brand_name}} </option>
+                                    @endif
+                                    @endforeach
+                                    </select>
+                                  
                                     @error('brand_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -43,7 +60,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="size_id">Size</label>
-                                    <input id="size_id" type="text" value="{{$edit->size_id}} " class=" form-control @error('size_id') is-invalid @enderror" placeholder="SIZE" name="size_id" required autocomplete="size_id">
+                                    <select name="size_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($size_product as $key => $size)
+                                    @if($size->id== $edit->size_id)
+                                    <option selected value="{{$size->id}}">{{$size->size_name}} </option>
+                                    @else
+                                    <option value="{{$size->id}}">{{$size->size_name}} </option>
+                                    @endif
+                                    @endforeach
+                                    </select>
                                     @error('size_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,7 +77,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="color_id">Màu sắc</label>
-                                    <input id="color_id" type="text" value="{{$edit->color_id}} " class=" form-control @error('color_id') is-invalid @enderror" placeholder="MÀU" name="color_id" required autocomplete="color_id">
+                                    <select name="color_id" class="form-control input-sm m-bot15"> 
+                                    @foreach($color_product as $key => $color)
+                                    @if($color->id == $edit->color_id)
+                                    <option selected value="{{$color->id}}">{{$color->color_name}} </option>
+                                    @else
+                                    <option value="{{$color->id}}">{{$color->color_name}} </option>
+                                    @endif
+                                    @endforeach
+                                    </select>
                                     @error('color_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
