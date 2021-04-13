@@ -189,7 +189,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a href="#"> {{$categories->name}}
+                                    <a href="{{URL::to('/Danh_muc_san_pham/'.$categories->id)}}"> {{$categories->name}}
                                     </a>
                                 </h4>
                             </div>
@@ -232,7 +232,7 @@
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
                             @foreach($brand as $key => $brand_product)
-                                <li><a href="#"> <span class="pull-right">(50)</span>{{$brand_product->brand_name}}</a></li>
+                                <li><a href="{{URL::to('/Thuong_hieu_san_pham/'.$brand_product->brand_id)}}"> <span class="pull-right">(50)</span>{{$brand_product->brand_name}}</a></li>
                                 
                                 @endforeach
                          

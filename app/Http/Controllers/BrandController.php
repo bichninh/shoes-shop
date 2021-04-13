@@ -64,4 +64,11 @@ class BrandController extends Controller
            DB::table('brands')->where('brand_id',$id)->delete();
            return redirect()->back()->with('message', "Xóa thành công ");
         }
+        public function show_brand_home($brand_id){
+            $cate_product= DB::table('categories')->orderby('id','desc')->get();
+            $brand_product= DB::table('brands')->orderby('brand_id','desc')->get();
+            $brand_by_id= $products =DB::table('products')
+            ->join('brands','brands.brand_id','=','products.brand_id')->where('products.brand_id',$brand_id)->get() ;
+            return view('pages.brand.show_brand')->with('category',$cate_product)->with('brand',$brand_product)->with('brand_by_id', $brand_by_id ); 
+        }
 }

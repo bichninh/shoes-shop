@@ -1,23 +1,24 @@
 @extends('welcome')
 @section('content')
     <div class="features_items"><!--features_items-->
-        <h2 class="title text-center">Features Items</h2>
+        <h2 class="title text-center">Sản phẩm mới nhất</h2>
+        @foreach($product as $product)
         <div class="col-sm-4">
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                        <img src="{{asset('frontend/images/slide1.jpg')}}" alt="" />
-                        <h2>200.000</h2>
-                        <p>Sneaker Y124</p>
+                      <a href="{{URL::to('/Chi_tiet_san_pham')}}">  <img src="{{URL::to('public/uploads/product/'.$product->image)}}" alt="" /></a>
+                        <h2>{{$product->price}},000 VND</h2>
+                        <p>{{$product->product_name}}</p>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
-                    <div class="product-overlay">
+                  <!--  <div class="product-overlay">
                         <div class="overlay-content">
-                            <h2>200.000</h2>
-                            <p>Sneaker Y124</p>
+                            <h2>{{$product->price}}</h2>
+                            <p>{{$product->product_name}}</p>
                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
-                    </div>
+                    </div>  -->
                 </div>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-
+           @endforeach
 
 
 
@@ -36,11 +37,11 @@
     <div class="category-tab"><!--category-tab-->
         <div class="col-sm-12">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tshirt" data-toggle="tab">R6T</a></li>
-                <li><a href="#blazers" data-toggle="tab">GG</a></li>
-                <li><a href="#sunglass" data-toggle="tab">IUIU</a></li>
-                <li><a href="#kids" data-toggle="tab">YHGH</a></li>
-                <li><a href="#poloshirt" data-toggle="tab">AS</a></li>
+                <li class="active"><a href="#tshirt" data-toggle="tab">E</a></li>
+                <li><a href="#" data-toggle="tab">A</a></li>
+                <li><a href="#" data-toggle="tab">B</a></li>
+                <li><a href="#" data-toggle="tab">C</a></li>
+                <li><a href="#" data-toggle="tab">D</a></li>
             </ul>
         </div>
         <div class="tab-content">

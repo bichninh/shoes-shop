@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
    public function index(){
-      $categories =DB::table('categories')->where('category_id','0')->orderby('id','asc')->get();
+      $categories =DB::table('categories')->orderby('id','asc')->get();
       $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
-   return view('pages.home')->with('category',$categories)->with('brand',$brand_product);
-
+      $product= DB::table('products')->orderby('product_id','desc')->limit(4)->get();
+   return view('pages.home')->with('category',$categories)->with('brand',$brand_product)->with('product',$product);
+      
    }
 } 

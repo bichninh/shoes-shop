@@ -81,4 +81,13 @@ class CategoryController extends Controller
        DB::table('categories')->where('id',$id)->delete();
        return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
     }
+    public function show_category_home($category_id){
+      $cate_product= DB::table('categories')->orderby('id','desc')->get();
+      $brand_product= DB::table('brands')->orderby('brand_id','desc')->get();
+      $category_by_id= $products =DB::table('products')
+      ->join('categories','categories.id','=','products.category_id')->where('products.category_id',$category_id)->get() ;
+      return view('pages.category.show_category')->with('category',$cate_product)->with('brand',$brand_product)->with('category_by_id', $category_by_id ); 
+    
+    }
 }
+      

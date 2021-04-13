@@ -10,7 +10,7 @@
                         <div class="panel-body">
                         @foreach( $edit_product as  $key => $edit)
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/update-product/'.$edit->id)}}" method="post">
+                                <form role="form" action="{{URL::to('/update-product/'.$edit->product_id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="product_name">Tên sản phẩm</label>

@@ -17,7 +17,7 @@ class ProductController extends Controller
         ->join('brands','brands.brand_id','=','products.brand_id')
         ->join('sizes','sizes.id','=','products.size_id')
         ->join('colors','colors.id','=','products.color_id')
-        ->orderby('products.id','asc')->get();
+        ->orderby('products.product_id','asc')->get();
       return view(
           'admin.product.product',
           ['products' => $products] 
@@ -60,20 +60,40 @@ class ProductController extends Controller
         "content.required" => "Bạn chưa nhập ",
         
     ]);
-     
-      
-    $cate               = new product;
+    $data= array();
+    $data['product_name']= $request->product_name;
+    $data['category_id']= $request->category_id;
+    $data['brand_id']= $request->brand_id;
+    $data['size_id']= $request->size_id;
+    $data['color_id']= $request->color_id;
+    $data['price']= $request->price;
+    $data['price_new']= $request->price_new;
+    $data['quantily']= $request->quantily;
+    $data['content']= $request->content;
+    $data['image']= $request->image; 
+    /*$cate               = new product;
     $cate->product_name         = $request->product_name;
     $cate->category_id  = $request->category_id;
     $cate->brand_id     = $request->brand_id;
     $cate->size_id      = $request->size_id;
     $cate->color_id     = $request->color_id;
-    $cate->image        = $request->image;
     $cate->price        = $request->price;
     $cate->price_new    = $request->price_new;
     $cate->quantily     = $request->quantily;
     $cate->content      = $request->content;
-    $cate->save();
+    $cate->image        = $request->image;*/
+    $get_image= $request->file('image');
+    if( $get_image){
+    $get_name_image=   $get_image->getClientOriginalName();
+    $name_image=current(explode('.',$get_name_image));
+    $new_image= $name_image.rand(0,99).'.'. $get_image->getClientOriginalExtension();
+    $get_image->move('public/uploads/product', $new_image);
+    $data['image']=$new_image;
+    DB::table('products')->insert($data);
+    return redirect()->back()->with("message","Thêm thành công");
+     }
+     $data['image'] = "";
+     DB::table('products')->insert($data);
 
     return redirect()->back()->with("message","Thêm thành công");
     	
@@ -85,7 +105,7 @@ class ProductController extends Controller
         $brand_product = DB::table('brands')->orderby('brand_id','asc')->get();
         $size_product= DB::table('sizes')->orderby('id','asc')->get();
         $color_product=DB::table('colors')->orderby('id','asc')->get();
-        $edit_product =  DB::table('products')->where('id',$id)->get();
+        $edit_product =  DB::table('products')->where('product_id',$id)->get();
         
         $a= view('admin.product.edit_product')->with('edit_product', $edit_product)->with('cate_product',$cate_product)->with('brand_product',$brand_product)->with('size_product',$size_product)->with('color_product',$color_product);;
      
@@ -99,21 +119,44 @@ class ProductController extends Controller
          $data['brand_id']= $request->brand_id;
          $data['size_id']= $request->size_id;
          $data['color_id']= $request->color_id;
-         $data['image']= $request->image;
          $data['price']= $request->price;
          $data['price_new']= $request->price_new;
          $data['quantily']= $request->quantily;
          $data['content']= $request->content;
-     
-         DB::table('products')->Where ('id', $id)->update($data);
+         $data['image']= $request->image;
+         $get_image= $request->file('image');
+         if( $get_image){
+         $get_name_image=   $get_image->getClientOriginalName();
+         $name_image=current(explode('.',$get_name_image));
+         $new_image= $name_image.rand(0,99).'.'. $get_image->getClientOriginalExtension();
+         $get_image->move('public/uploads/product', $new_image);
+         $data['image']=$new_image;
+         DB::table('products')->Where ('product_id', $id)->update($data);
          return redirect()->back()->with('message', "Cập nhật sản phẩm thành công ");
-         
          }
+        
+         DB::table('products')->Where ('product_id', $id)->update($data);
+         return redirect()->back()->with('message', "Cập nhật sản phẩm thành công ");
+        }
      
-    public function delete($id){
+      public function delete($product_id){
  
     
-        DB::table('products')->where('id',$id)->delete($id);
+        DB::table('products')->where('product_id', $product_id)->delete();
         return redirect()->back()->with('message', "Xóa sản phẩm thành công ");
+     }
+     public function productdetail($id){
+        $cate_product= DB::table('categories')->orderby('id','desc')->get();
+        $brand_product= DB::table('brands')->orderby('brand_id','desc')->get();
+        $size_product=  DB::table('sizes')->orderby('id','desc')->get();
+        $color_product=  DB::table('colors')->orderby('id','desc')->get();
+        $pro_by_id= $products =DB::table('products')
+        ->join('categories','categories.id','=','products.category_id')
+        ->join('brands','brands.brand_id','=','products.brand_id')
+        ->join('sizes','sizes.id','=','products.size_id')
+        ->join('colors','colors.id','=','products.color_id')
+        ->where('products.product_id',$id)->get() ;
+        return view('pages.product.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('size', $size_product)->with('color', $color_product)->with('category_by_id', $pro_by_id ); 
+        
      }
 }
