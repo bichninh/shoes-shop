@@ -1,8 +1,10 @@
 @extends('welcome')
 @section('content')
     <div class="features_items"><!--features_items-->
-        <h2 class="title text-center">Danh mục sản phẩm</h2>
+        @foreach($cate_name as $name)
+        <h2 class="title text-center">{{$name->name}}</h2>
          @foreach( $category_by_id as $by_id)
+         <a href="{{URL::to('/Chi_tiet_san_pham')}}">
         <div class="col-sm-4">
             <div class="product-image-wrapper">
                 <div class="single-products">
@@ -24,8 +26,9 @@
         </div>
 
        
+</a>
 
-
+@endforeach
 @endforeach
     </div><!--features_items-->
    

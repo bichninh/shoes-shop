@@ -148,15 +148,15 @@ class ProductController extends Controller
      public function productdetail($id){
         $cate_product= DB::table('categories')->orderby('id','desc')->get();
         $brand_product= DB::table('brands')->orderby('brand_id','desc')->get();
-        $size_product=  DB::table('sizes')->orderby('id','desc')->get();
-        $color_product=  DB::table('colors')->orderby('id','desc')->get();
-        $pro_by_id= $products =DB::table('products')
+        /*$size_product=  DB::table('sizes')->orderby('id','desc')->get();
+        $color_product=  DB::table('colors')->orderby('id','desc')->get();*/
+        $detail= $products =DB::table('products')
         ->join('categories','categories.id','=','products.category_id')
-        ->join('brands','brands.brand_id','=','products.brand_id')
-        ->join('sizes','sizes.id','=','products.size_id')
+        ->join('brands','brands.brand_id','=','products.brand_id')->where('products.product_id',$id)->get();
+        /*->join('sizes','sizes.id','=','products.size_id')
         ->join('colors','colors.id','=','products.color_id')
-        ->where('products.product_id',$id)->get() ;
-        return view('pages.product.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('size', $size_product)->with('color', $color_product)->with('category_by_id', $pro_by_id ); 
+        ->where('products.product_id',$id)->get() ;*/
+        return view('pages.product.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('product-detail',$detail); 
         
      }
 }

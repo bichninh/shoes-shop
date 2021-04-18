@@ -3,6 +3,7 @@
     <div class="features_items"><!--features_items-->
         <h2 class="title text-center">Thương hiệu sản phẩm</h2>
          @foreach( $brand_by_id as $by_id)
+         <a href="{{URL::to('/Chi_tiet_san_pham')}}">
         <div class="col-sm-4">
             <div class="product-image-wrapper">
                 <div class="single-products">
@@ -24,7 +25,7 @@
         </div>
 
        
-
+</a>
 
 @endforeach
     </div><!--features_items-->
