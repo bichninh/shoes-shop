@@ -6,7 +6,10 @@
                     <section class="panel">
                         <header class="panel-heading">
                             Thên danh mục sản phẩm
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span></button>
                         </header>
+                       
                         <div class="panel-body">
                             <div class="position-center">
                                 <form role="form" action="{{URL::to('/store-category')}}" method="post">

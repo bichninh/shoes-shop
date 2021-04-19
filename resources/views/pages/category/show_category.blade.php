@@ -4,7 +4,7 @@
         @foreach($cate_name as $name)
         <h2 class="title text-center">{{$name->name}}</h2>
          @foreach( $category_by_id as $by_id)
-         <a href="{{URL::to('/Chi_tiet_san_pham')}}">
+         <a href="{{URL::to('/Chi_tiet_san_pham/'.$by_id->product_id)}}">
         <div class="col-sm-4">
             <div class="product-image-wrapper">
                 <div class="single-products">
@@ -18,8 +18,8 @@
                 </div>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Yêu thích</a></li>
+                        <li><a href="#"><i class="fa fa-plus-square"></i>Bình thường</a></li>
                     </ul>
                 </div>
             </div>
