@@ -156,8 +156,16 @@ class ProductController extends Controller
         ->join('sizes','sizes.id','=','products.size_id')
         ->join('colors','colors.id','=','products.color_id')
         ->where('products.product_id',$id)->get() ;
-       
-        return view('pages.product.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('size', $size_product)->with('color',$color_product)->with('details',$details); 
+       foreach($details as $value ){
+           $category_id= $value->category_id;
+              }
+        $relation= DB::table('products')
+        ->join('categories','categories.id','=','products.category_id')
+        ->join('brands','brands.brand_id','=','products.brand_id')
+        ->join('sizes','sizes.id','=','products.size_id')
+        ->join('colors','colors.id','=','products.color_id')
+        ->where('categories.id',$category_id)->whereNotIn('products.product_id',[$id])->get();
+        return view('pages.product.product_detail')->with('category',$cate_product)->with('brand',$brand_product)->with('size', $size_product)->with('color',$color_product)->with('details',$details)->with('relation',$relation); 
         
      }
 }
