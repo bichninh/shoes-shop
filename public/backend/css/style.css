@@ -80,7 +80,7 @@ body a:hover{
     height:17px;
     width:17px;
     display:inline-block;
-    background:url(../images/acc-expand.png) no-repeat top;
+    background:url(../images/acc-expand.png) no-repeat top;                                                                  
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
@@ -96,8 +96,8 @@ body a:hover{
 .right-side-accordion li:nth-child(2) ul li .prog-row {
     border: none;
 }
-/*---*/
-.nav-collapse.collapse {
+/*---*/                                               
+.nav-collapse.collapse {                                                               
     display:inline;
 }
 ul.sidebar-menu,ul.sidebar-menu li ul.sub {

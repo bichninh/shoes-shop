@@ -11,7 +11,7 @@ class BrandController extends Controller
 {
     private $cate;
     public function show(){
-        $brands = brand::paginate(5);
+        $brands = brand::paginate(4);
       return view(
           'admin.brand.brand',
           ['brands' => $brands]

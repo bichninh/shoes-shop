@@ -58,11 +58,29 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Register</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i>  Tài khoản</a></li>
+                            
+                            <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <li><a href="{{URL::to('/login-user')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                            <li><a href="{{URL::to('/sign-in')}}"><i class="fa fa-suitcase"></i> Đăng kí</a></li>
+                            <li><a href="{{URL::to('/')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                            <li class="dropdown">
+                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                
+                             <span class="username">
+				             <?php
+				             use Illuminate\Support\Facades\Session;
+				              $name= Session::get('username');
+                              if($name){
+				              echo $name;
+			                   }
+                               ?>
+
+				</span>
+                <b class="caret"></b>
+            </a>
+           
+        </li>
                         </ul>
                     </div>
                 </div>
@@ -87,17 +105,13 @@
                             <li><a href="{{URL::to('/home')}}" class="active">Home</a></li>
                             <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="#">Products</a></li>
-                                    <li><a href="#">Product Details</a></li>
-                                    <li><a href="#">Checkout</a></li>
-                                    <li><a href="#">Cart</a></li>
-                                    <li><a href="#">Login</a></li>
+                                   
+                                    <li><a href="{{URL::to('/show-cart')}}">Giỏ hàng</a></li>
+                                    
                                    
                                 </ul>
                             </li>
                             
-                            <li><a href="#">404</a></li>
-                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
                 </div>

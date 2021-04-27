@@ -12,7 +12,7 @@ class CategoryController extends Controller
     private $cate;
      
     public function show(){
-        $categories = Category::paginate(5);
+        $categories = Category::paginate(4);
       return view(
           'admin.category.category',
           ['categories' => $categories] 

@@ -64,6 +64,12 @@ Route::post('/store-user',[UserController ::class, 'store']);
 Route::get('/edit-user/{id}',[UserController ::class, 'edit']);
 Route::post('/update-user/{id}',[UserController ::class, 'update']);
 Route::get('/delete-user/{id}',[UserController ::class, 'delete']);
+Route::get('/login-user',[UserController ::class, 'getLogin']);
+Route::get('/sign-in',[UserController ::class, 'getRegister']);
+Route::post('/home',[UserController ::class, 'setLogin']);
+Route::get('/',[UserController ::class, 'user_logout']);
+Route::post('/login-user',[UserController ::class, 'user_register']);
+
 //cart
 Route::post('/save-cart',[CartController ::class, 'save_cart']);
 Route::get('/show-cart',[CartController ::class, 'show_cart']);

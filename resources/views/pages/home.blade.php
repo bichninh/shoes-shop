@@ -11,7 +11,7 @@
                       <img src="{{URL::to('public/uploads/product/'.$product->image)}}" alt="" />
                         <h2>{{$product->price}},000 VND</h2>
                         <p>{{$product->product_name}}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                     </div>
                   <!--  <div class="product-overlay">
                         <div class="overlay-content">
@@ -38,11 +38,10 @@
     <div class="category-tab"><!--category-tab-->
         <div class="col-sm-12">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tshirt" data-toggle="tab">E</a></li>
-                <li><a href="#" data-toggle="tab">A</a></li>
-                <li><a href="#" data-toggle="tab">B</a></li>
-                <li><a href="#" data-toggle="tab">C</a></li>
-                <li><a href="#" data-toggle="tab">D</a></li>
+                <li class="active"><a href="#tshirt" data-toggle="tab">Sản phẩm bán chạy</a></li>
+               
+                <li><a href="#" data-toggle="tab">Sản phẩm giảm giá</a></li>
+               
             </ul>
         </div>
         <div class="tab-content">

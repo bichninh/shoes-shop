@@ -17,4 +17,8 @@ class admin extends Model
         
         
     ];
+    protected $hidden =[
+       'password',
+        
+    ];
 }

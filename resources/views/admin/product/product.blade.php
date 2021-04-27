@@ -57,7 +57,7 @@
                      @endforeach
                    </tbody>
                 </table> 
-                <div class="d-flex justify-content-center"></div>
+                <div class="d-flex justify-content-center">{{$products ->links()}}</div>
 
           </div>
           

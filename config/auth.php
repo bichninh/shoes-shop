@@ -44,8 +44,17 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
+          
         ],
+       'users' =>[
+        'driver' => 'session',
+        'provider' => 'users',
+       ],
+       'users-api' => [
+        'driver' => 'token',
+        'provider' => 'users',
+       ],
+
     ],
 
     /*
@@ -71,10 +80,7 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        
     ],
 
     /*
@@ -96,8 +102,8 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
+            'expire' => 6,
+            //'throttle' => 60,
         ],
     ],
 
