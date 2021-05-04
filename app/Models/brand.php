@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class brand extends Model
 {
     use HasFactory; 
+    public $timestamps= false;
     protected $table ='brands';
     protected $fillable = [
-        'brand_name',
+        'brand_name'
         ];
-
+    protected $primaryKey = 'brand_id';
         public function product()
         {
-            return $this->hasMany("App\product","brand_id","id");
+            return $this->belongsTo("App\product","brand_id","id");
         }
 }

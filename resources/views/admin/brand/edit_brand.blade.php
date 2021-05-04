@@ -8,13 +8,13 @@
                             Cập nhật thương hiệu sản phẩm
                         </header>
                         <div class="panel-body">
-                            @foreach( $edit_brand as  $key => $edit)
+                             
                             <div class="pos ition-center">
-                                <form role="form" action="{{ URL::to('/update-brand/'.$edit->brand_id)}}" method="post">
+                                <form role="form" action="{{ URL::to('/update-brand/'.$edit_brand->brand_id)}}" method="post">
                                 {{ csrf_field() }}  
                                 <div class="form-group">
                                     <label for="brand_name">Tên thương hiệu</label>
-                                    <input id="brand_name" type="text" value="{{ $edit->brand_name }}" class=" form-control @error('brand_name') is-invalid @enderror" name="brand_name" required autocomplete="brand_name">
+                                    <input id="brand_name" type="text" value="{{ $edit_brand->brand_name }}" class=" form-control @error('brand_name') is-invalid @enderror" name= "brand_name" required autocomplete="brand_name">
 
                                     @error('brand_name')
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                                @endif
                             </form>
                             </div>
-                         @endforeach
+                         
                         </div>
                     </section>
 

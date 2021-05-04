@@ -13,18 +13,16 @@ class CartController extends Controller
        $productId = $request->productId;
        $quantily= $request->qty;
        $product_info= DB::table('products')->where('product_id',$productId)->first();
-       $datas= DB:: table('products')->where('product_id',$productId)->get();
-       $categories =DB::table('categories')->orderby('id','asc')->get();
-       $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
-       $datas['id']= $product_info->product_id;
-       $datas['image']= $product_info->image;
-       $datas['qty']= $quantily;
-       $datas['weight']= $product_info->price;
-       $datass['name']= $product_info->product_name;
-       $datas['price']= $product_info->price;
+      // $datas= DB:: table('products')->where('product_id',$productId)->get();
+       $data['id']= $product_info->product_id;
+       $data['qty']= $quantily;
+       $data['weight']= $product_info->price;
+       $data['name']= $product_info->product_name;
+       $data['price']= $product_info->price;
+       $data['options']['image']= $product_info->image;
       // $data['options']['size']= $product_info->size;
       // $data['options']['color']= $product_info->color;
-       Cart::add($datas);
+       Cart::add($data);
      return Redirect::to('/show-cart');
     }
     public function show_cart(){
@@ -35,5 +33,16 @@ class CartController extends Controller
         $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
         return view('pages.cart.show_cart')->with('category',$categories)->with('brand',$brand_product)->with('content_cart',$cart);
 
+    }
+    public function delete_to_cart($rowId){
+        Cart::update($rowId,0);
+        return Redirect::to('/show-cart');
+
+    }
+    public function update_cart_quanlity(Request $request){
+        $rowId = $request->rowId_cart;
+        $qty= $request->cart_quanlity;
+        Cart::update($rowId,$qty);
+        return Redirect::to('/show-cart');
     }
 }

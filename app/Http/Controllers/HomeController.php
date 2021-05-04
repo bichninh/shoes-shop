@@ -13,6 +13,7 @@ class HomeController extends Controller
       $categories =DB::table('categories')->orderby('id','asc')->get();
       $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
       $product= DB::table('products')->orderby('product_id','desc')->limit(4)->get();
+      
    return view('pages.home')->with('category',$categories)->with('brand',$brand_product)->with('product',$product);
       
    }

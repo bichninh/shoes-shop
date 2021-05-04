@@ -58,29 +58,38 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i>  Tài khoản</a></li>
+                            <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-user"></i>  Tài khoản</a></li>
                             
                             <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                            <li><a href="{{URL::to('/login-user')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-                            <li><a href="{{URL::to('/sign-in')}}"><i class="fa fa-suitcase"></i> Đăng kí</a></li>
-                            <li><a href="{{URL::to('/')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
-                            <li class="dropdown">
-                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                
-                             <span class="username">
-				             <?php
-				             use Illuminate\Support\Facades\Session;
-				              $name= Session::get('username');
-                              if($name){
-				              echo $name;
-			                   }
-                               ?>
+                            <?php
+                            $user_id= Session::get('user_id');
+                            if( $user_id!= NULL){
 
-				</span>
-                <b class="caret"></b>
-            </a>
-           
-        </li>
+                            ?>
+                            <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-suitcase"></i> Thanh toán</a></li>
+                            <?php
+                            }else{
+                            ?>
+                            <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-suitcase"></i> Thanh toán</a></li>
+                           <?php
+                            }
+                            ?>
+                           
+                            <?php
+                            $user_id= Session::get('user_id');
+                            if( $user_id!= NULL){
+
+                            ?>
+                            <li><a href="{{URL::to('/logout-checkout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                            <?php
+                            }else{
+                            ?>
+                            <li><a href="{{URL::to('/login-checkout')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                           <?php
+                            }
+                            ?>
+                            
+                           
                         </ul>
                     </div>
                 </div>

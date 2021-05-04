@@ -44,18 +44,21 @@ class BrandController extends Controller
         
     }
     public function edit($brand_id){
-       $edit_brand =  DB::table('brands')->where('brand_id',$brand_id)->get();
+       //$edit_brand =  DB::table('brands')->where('brand_id',$brand_id)->get();
+       $edit_brand= brand::find($brand_id);
        $a= view('admin.brand.edit_brand')->with('edit_brand', $edit_brand);
     
        return view('admin_layout')->with('admin.brand.edit_brand', $a);
         }
     public function update( Request $request, $brand_id ){
 
-        $data= array();
-        $data['brand_name']= $request->brand_name;
-       
-    
-        DB::table('brands')->Where ('brand_id', $brand_id)->update($data);
+       // $data= array();
+       //$data['brand_name']= $request->brand_name;
+       $data= $request->all();
+       $brand= brand::find($brand_id);
+       $brand->brand_name = $data['brand_name'];
+       $brand->save();
+       // DB::table('brands')->Where ('brand_id', $brand_id)->update($data);
         return redirect()->back()->with('message', "Cập nhật thành công ");
         
         }

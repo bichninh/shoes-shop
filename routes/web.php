@@ -56,7 +56,7 @@ Route::post('/update-product/{product_id}',[ProductController ::class, 'update']
 Route::get('/delete-product/{product_id}',[ProductController ::class, 'delete']);
 Route::get('/Chi_tiet_san_pham/{product_id}',[ProductController ::class, 'productdetail']);
 //user
-Auth::routes();
+//Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/user',[UserController ::class, 'show']);
 Route::get('/add_user',[UserController ::class, 'create']);
@@ -64,14 +64,22 @@ Route::post('/store-user',[UserController ::class, 'store']);
 Route::get('/edit-user/{id}',[UserController ::class, 'edit']);
 Route::post('/update-user/{id}',[UserController ::class, 'update']);
 Route::get('/delete-user/{id}',[UserController ::class, 'delete']);
-Route::get('/login-user',[UserController ::class, 'getLogin']);
-Route::get('/sign-in',[UserController ::class, 'getRegister']);
-Route::post('/home',[UserController ::class, 'setLogin']);
-Route::get('/',[UserController ::class, 'user_logout']);
-Route::post('/login-user',[UserController ::class, 'user_register']);
+Route::get('/login-checkout',[UserController ::class, 'login_checkout']);
+Route::post('/add-customer',[UserController ::class, 'add_customer']);
+Route::get('/checkout',[UserController ::class, 'checkout']);
+Route::post('/save-checkout',[UserController ::class, 'save_checkout']);
+Route::post('/login-customer',[UserController ::class, 'login_customer']);
+Route::get('/logout-checkout',[UserController ::class, 'logout_checkout']);
+//Route::get('/login-user',[UserController ::class, 'getLogin']);
+//Route::get('/sign-in',[UserController ::class, 'getRegister']);
+//Route::post('/home',[UserController ::class, 'setLogin']);
+//Route::get('/home',[UserController ::class, 'user_logout']);
+//Route::post('/login-user',[UserController ::class, 'user_register']);
 
 //cart
 Route::post('/save-cart',[CartController ::class, 'save_cart']);
 Route::get('/show-cart',[CartController ::class, 'show_cart']);
-
+Route::get('/delete-to-cart/{rowId}',[CartController ::class, 'delete_to_cart']);
+Route::post('/update-cart-quanlity',[CartController ::class, 'update_cart_quanlity']);
+//checkout
 
