@@ -1,14 +1,10 @@
 @extends('welcome')
 @section('content')
-<section id="cart_items">
-		<div class="container">
-			<div class="breadcrumbs">
-				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">Giỏ hàng</li>
-				</ol>
-			</div>
-			<div class="table-responsive cart_info">
+
+<div class="review-payment"> 
+      <h2>Đơn hàng</h2>
+ </div>
+  <div class="table-responsive cart_info">
               <?php
 			  $content_cart= Cart::content();
 			  
@@ -50,14 +46,11 @@
 								<p>{{number_format($v_content->price).',000 '.'vnd'}}</p>
 							</td>
 							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<form action="{{URL::to('/update-cart-quanlity')}}" method="POST">
-									{{ csrf_field() }}
-									<input class="cart_quantity_input" type="text" name="cart_quanlity" value="{{$v_content->qty}}" >
-									<input type="hidden" value="{{$v_content->rowId}}" name="rowId_cart" class="form-control">
-									<input type="submit" value="Cập nhật" name="update_qty" class="btn btn-default btn-sm">
-									</form>
-								</div>
+								
+									
+							<p> {{$v_content->qty}}</p >
+								
+								
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price">
@@ -68,25 +61,21 @@
 								
 								</p>
 							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="{{URL::to('/delete-to-cart/'.$v_content->rowId)}}"><i class="fa fa-times"></i></a>
-							</td>
+						
 						</tr>
                     @endforeach
-					</tbody>
-
-				</table>
-			</div>
-		</div>
-	</section> <!--/#cart_items-->
-  
-	<section id="do_action">
-		<div class="container">
-			<div class="heading">
-				<h3>Hóa đơn</h3>
 				
-			</div>
-			<div class="row">
+					</tbody>
+				
+				</table>
+			
+				
+        </div>
+        
+  <div class="review-payment"> 
+      <h2>Thành tiền</h2>
+ </div>
+        <div class="row">
 				
 				<div class="col-sm-6">
 					<div class="total_area">
@@ -95,26 +84,27 @@
 							<li>Phí vận chuyển <span>Free</span></li>
 							<li>Thành tiền <span>{{Cart::subtotal().'0'.' vnd'}}</span></li>
 						</ul>
-							{{-- <a class="btn btn-default update" href="">Update</a> --}}
-							<?php
-                            $user_id= Session::get('user_id');
-                            if( $user_id!= NULL){
-
-                            ?>
-                           	<a class="btn btn-default check_out" href="{{URL::to('/checkout')}}">Thanh toán</a>
-                            <?php
-                            }else{
-                            ?>
-                            <a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Thanh toán</a>
-                           <?php
-                            }
-                            ?>
 							
+						</div>	
 				</div>
-			</div>
 		</div>
-	</section>
-
-
-
-@endsection
+ 
+ <div class="review-payment"> 
+      <h2>Thông tin giao hàng</h2>
+ </div>
+ <div class="row">
+				
+				<div class="col-sm-7">
+					<div class="total_area">
+						<ul>
+							<li>Họ và tên: <span></span></li>
+							<li>Địa chỉ email: <span></span></li>
+							<li>Số điện thoại: <span></span></li>
+							<li>Địa chỉ:<span></span></li>
+							<li>Ghi chú cho sản phẩm: <span></span></li>
+						</ul>
+							
+						</div>	
+				</div>
+		</div>
+ @endsection

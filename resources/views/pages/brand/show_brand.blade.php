@@ -4,7 +4,7 @@
         <h2 class="title text-center">Thương hiệu sản phẩm</h2>
          @foreach( $brand_by_id as $by_id)
          <a href="{{URL::to('/Chi_tiet_san_pham/'.$by_id->product_id)}}">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">

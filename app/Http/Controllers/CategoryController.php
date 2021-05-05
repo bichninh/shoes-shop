@@ -31,16 +31,16 @@ class CategoryController extends Controller
      // print_r($data);
      $request->validate([
         "name" => "required",
-        "category_id" => "required",
+       
     ],[
         "name.required" => "Bạn chưa nhập name",
-        "category_id.required" => "Bạn chưa nhập "
+       
     ]);
      
       
     $cate             = new Category;
     $cate->name       = $request->name;
-    $cate->category_id  = $request->category_id;
+    
     $cate->save();
 
     return redirect()->back()->with("message","Thêm thành công");
@@ -58,8 +58,7 @@ class CategoryController extends Controller
 
         $data= array();
         $data['name']= $request->name;
-        $data['category_id']= $request->category_id;
-    
+      
         DB::table('categories')->Where ('id', $id)->update($data);
         return redirect()->back()->with('message', "Cập nhật sản phẩm thành công ");
         

@@ -25,12 +25,13 @@ class AdminController extends Controller
         $result= DB::table('admin')-> where('username',$username)-> where('password',$password)->first();
         if($result){
            Session::put('username', $result->username);
-           Session::put('password', $result->password);
+          // Session::put('password', $result->password);
            return Redirect::to('/dashboard');
         }else
         {    
-            Session::put('message','Tài khoản hoặc mật khẩu sai. Nhập lại!');
-            return Redirect::to('/admin');
+           // Session::put('message','Tài khoản hoặc mật khẩu sai. Nhập lại!');
+           // return Redirect::to('/admin');
+           return redirect()->back()->with('message', "Username hoặc mật khẩu sai!");
         }
 
        // return view('admin.dashboard');

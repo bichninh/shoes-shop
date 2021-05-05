@@ -24,7 +24,7 @@ class User extends Authenticatable
         'address',
         
     ];
-
+    protected $primaryKey = 'id';
     /**
      * The attributes that should be hidden for arrays.
      *

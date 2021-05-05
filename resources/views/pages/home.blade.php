@@ -4,7 +4,7 @@
         <h2 class="title text-center">Sản phẩm mới nhất</h2>
         @foreach($product as $product)
         <a href="{{URL::to('/Chi_tiet_san_pham/'.$product->product_id)}}">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
@@ -38,7 +38,7 @@
     <div class="category-tab"><!--category-tab-->
         <div class="col-sm-12">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tshirt" data-toggle="tab">Sản phẩm bán chạy</a></li>
+                <li class="active"><a href="#" data-toggle="tab">Sản phẩm bán chạy</a></li>
                
                 <li><a href="#" data-toggle="tab">Sản phẩm giảm giá</a></li>
                
@@ -125,7 +125,7 @@
           
         </div>
     </div><!--/category-tab-->
-    <div class="recommended_items"><!--recommended_items-->
+   {{-- <div class="recommended_items"><!--recommended_items-->
         <h2 class="title text-center">recommended items</h2>
 
         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -222,5 +222,5 @@
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>
-    </div><!--/recommended_items-->
+    </div><!--/recommended_items-->  --}}
 @endsection

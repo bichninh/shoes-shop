@@ -49,19 +49,21 @@
 										<i class="fa fa-shopping-cart"></i>
 										Thêm vào giỏ hàng
 								    </button>
-
-							   </span>
-							 </form>
-								<p><b>Màu sắc: </b>{{$detail->color_name}}  </p>
-								<p><b>Thương hiệu: </b>{{$detail->brand_name}} </p>
-								@if($detail->quantily > 0)
-								<p><b>Tình trạng: </b> Còn hàng </p>
-								@else
-								<p><b>Tình trạng: </b> Hết hàng </p>
-								@endif
-								<br>
+                                    <p><b>Màu sắc: </b>{{$detail->color_name}}  </p>
+								    <p><b>Size: </b>{{$detail->size_name}} </p>
+								    <p><b>Thương hiệu: </b>{{$detail->brand_name}} </p>
+								     @if($detail->quantily > 0)
+								    <p><b>Tình trạng: </b> Còn hàng </p>
+								    @else
+								   <p><b>Tình trạng: </b> Hết hàng </p>
+								   @endif
+								  <br>
 
 								<a href=""><img src="" class="share img-responsive"  alt="" /></a>
+							   </span>
+							
+								
+								</form>
 							</div><!--/product-information-->
 						</div>
 
@@ -81,11 +83,7 @@
 							</div>
 				<div class="tab-pane fade " id="reviews" >
 								<div class="col-sm-12">
-									<ul>
-										<li><a href=""><i class="fa fa-user"></i>ab</a></li>
-										<li><a href=""><i class="fa fa-clock-o"></i>00:00 PM</a></li>
-										<li><a href=""><i class="fa fa-calendar-o"></i>dd DEC yyyy</a></li>
-									</ul>
+								
 
 									<p><b>Viết bình luận của bạn</b></p>
 
@@ -114,8 +112,9 @@
 							<div class="carousel-inner">
 
 								<div class="item active">
-							    @foreach($relation as  $lienquan)
-									<div class="col-sm-4">
+							       @foreach($relation as  $lienquan)
+								   
+									<div class="col-sm-3">
 										<div class="product-image-wrapper">
 										 <div class="single-products">
                                             <div class="productinfo text-center">
@@ -131,10 +130,10 @@
 									@endforeach
 						      </div>
 
-							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+							   <a class="left recommended-item-control" href="#" data-slide="prev">
 								<i class="fa fa-angle-left"></i>
 							  </a>
-							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+							  <a class="right recommended-item-control" href="#" data-slide="next">
 								<i class="fa fa-angle-right"></i>
 							  </a>
 						</div>

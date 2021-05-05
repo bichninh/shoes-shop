@@ -39,15 +39,31 @@ class UserController extends Controller
     public function checkout(){
         $categories =DB::table('categories')->orderby('id','asc')->get();
         $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
-        return view('pages.checkout.show_checkout')->with('category',$categories)->with('brand',$brand_product);
+        $user_id= Session::get('user_id');
+        $userid= User::find($user_id);
+      
+        return view('pages.checkout.show_checkout')->with('category',$categories)->with('brand',$brand_product)->with('user_id', $userid);
     }
-    public function save_checkout(){
-        return Redirects('/payment');
-
+    public function save_checkout(Request $request){
+       $data= array();
+       $data['shipping_name']= $request->shipping_name;
+       $data['shipping_email']= $request->shipping_email;
+       $data['shipping_phone']= $request->shipping_phone;
+       $data['shipping_address']= $request->shipping_address;
+       $data['shipping_notes']= $request->shipping_notes;
+       
+       $shipping_id= DB::table('shippings')->InsertGetId($data);
+       Session::put('shipping_id',$id);
+       return Redirect::to('/payment');
+      
     }
     public function payment(){
-       
-
+        $categories =DB::table('categories')->orderby('id','asc')->get();
+        $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
+      //  $id=Session::get('shipping_id');
+        //$shipping_id= DB::table('shippings')->where('id',$id)->first();
+        return view('pages.checkout.payment')->with('category',$categories)->with('brand',$brand_product);
+        
     }
     public function login_customer(Request $request){
        
@@ -69,6 +85,7 @@ class UserController extends Controller
 
 
     }
+    
     public function getLogin(){
         return view('auth.login');
 
@@ -153,7 +170,6 @@ class UserController extends Controller
 
 
     }
-
 
 
     private $cate;

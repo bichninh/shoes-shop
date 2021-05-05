@@ -34,13 +34,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 	?>
 		<form action="{{URL::to('/admin-dashboard')}}" method="post">
-		    {{csrf_field()}}
-			<input type="text" class="ggg" name="username" placeholder="USERNAME" required="">
-			<input type="password" class="ggg" name="password"  placeholder="PASSWORD" required="">
+	     	@csrf
+			
+			<div class="form-group ">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('UserName') }}</label>
+
+                            <div class="col-md-6">
+                            <input id="username" type="text" class="ggg form-control @error('username') is-invalid @enderror" placeholder="USERNAME" name="username" required autocomplete="username">
+   
+                        
+                                @error('usename')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+            </div>
+			<div class="form-group ">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                            <input id="password" type="password" class="ggg form-control @error('passwword') is-invalid @enderror" placeholder="PASSWORD" name="password" required autocomplete="password">
+   
+                        
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+            </div>
+			
 			<span><input type="checkbox" />Nhớ đăng nhập</span>
 			<h6><a href="#">Quên mật khẩu?</a></h6>
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng nhập" name="login">
+				@if (session('message'))
+                            <div class="alert alert-success">
+                               <p>{{ session('message') }}</p>
+                             </div>
+                               @endif 
 		</form>
 	    <!--	<p>Don't Have an Account ?<a href="registration.html">Create an account</a></p>-->
 </div>

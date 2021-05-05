@@ -25,16 +25,7 @@
                                    @enderror
                                    <!-- <input type="text" class="form-control" id="name" placeholder="name"> -->
                                 </div>
-                                <div class="form-group">
-                                    <label for="category_id">Thư mục cha</label>
-                                    <input id="category_id" type="text" class=" form-control @error('category_id') is-invalid @enderror" placeholder="THU MUC" name="category_id" required autocomplete="category_id">
-                                    @error('category_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                   @enderror
-                                </div>
-                                
+                               
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox"> Check me out
