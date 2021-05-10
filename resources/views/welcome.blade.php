@@ -63,10 +63,14 @@
                             <li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                             <?php
                             $user_id= Session::get('user_id');
-                            if( $user_id!= NULL){
-
+                            $shipping_id= Session::get('shipping_id');
+                            if( $user_id!= NULL && $shipping_id==NULL ){
                             ?>
                             <li><a href="{{URL::to('/checkout')}}"><i class="fa fa-suitcase"></i> Thanh toán</a></li>
+                            <?php
+                            }elseif( $user_id!= NULL && $shipping_id!=NULL ){
+                            ?>
+                            <li><a href="{{URL::to('/payment')}}"><i class="fa fa-suitcase"></i> Thanh toán</a></li>
                             <?php
                             }else{
                             ?>

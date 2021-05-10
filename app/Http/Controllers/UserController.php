@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\shipping;
 use Auth;
+use Cart;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -53,17 +55,48 @@ class UserController extends Controller
        $data['shipping_notes']= $request->shipping_notes;
        
        $shipping_id= DB::table('shippings')->InsertGetId($data);
-       Session::put('shipping_id',$id);
+       Session::put('shipping_id',$shipping_id);
        return Redirect::to('/payment');
       
     }
     public function payment(){
         $categories =DB::table('categories')->orderby('id','asc')->get();
         $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
-      //  $id=Session::get('shipping_id');
-        //$shipping_id= DB::table('shippings')->where('id',$id)->first();
-        return view('pages.checkout.payment')->with('category',$categories)->with('brand',$brand_product);
         
+        $shipping_id=Session::get('shipping_id');
+        //$shippingid= DB::table('shippings')->where('id',$shipping_id)->first();
+        $shippingid= shipping::find($shipping_id);
+        return view('pages.checkout.payment')->with('category',$categories)->with('brand',$brand_product)->with('shipping_id', $shippingid);
+        
+    }
+    public function order(){
+        
+        //chèn vào bảng order
+        $data= array();
+        $data['shipping_id']= Session::get('shipping_id');
+        $data['user_id']=  Session::get('user_id');
+        $data['total']= Cart::subtotal();
+        $data['status']= "dang cho xu li";
+        //$data['order_date']= getdate();
+       $order_id= DB::table('orders')->InsertGetId($data);
+       //chèn vào bảng order_detail
+       $data_d_order= array();
+       $content= Cart::content();
+       foreach($content as $v_content){
+        $data_d_order['order_id']=  $order_id;
+        $data_d_order['product_id']=  $v_content->id;
+        $data_d_order['product_name']=  $v_content->name;
+        $data_d_order['price_unit']= $v_content->price;
+        $data_d_order['quantily_sale']=$v_content->qty ;
+        $data_d_order['size']= $v_content->options->size;
+        $data_d_order['color']= $v_content->options->color;
+        DB::table('order_details')->InsertGetId($data_d_order);
+        
+       }
+       Cart::destroy();
+       $categories =DB::table('categories')->orderby('id','asc')->get();
+       $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
+     return view('pages.checkout.success')->with('category',$categories)->with('brand',$brand_product);
     }
     public function login_customer(Request $request){
        

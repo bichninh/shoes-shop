@@ -1,6 +1,13 @@
 @extends('welcome')
 @section('content')
-
+<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">Thanh toán đơn hàng</li>
+				</ol>
+			</div>
 <div class="review-payment"> 
       <h2>Đơn hàng</h2>
  </div>
@@ -71,7 +78,9 @@
 			
 				
         </div>
-        
+		
+     
+ 
   <div class="review-payment"> 
       <h2>Thành tiền</h2>
  </div>
@@ -88,23 +97,34 @@
 						</div>	
 				</div>
 		</div>
+
  
  <div class="review-payment"> 
       <h2>Thông tin giao hàng</h2>
  </div>
  <div class="row">
-				
+ 
 				<div class="col-sm-7">
+				
 					<div class="total_area">
 						<ul>
-							<li>Họ và tên: <span></span></li>
-							<li>Địa chỉ email: <span></span></li>
-							<li>Số điện thoại: <span></span></li>
-							<li>Địa chỉ:<span></span></li>
-							<li>Ghi chú cho sản phẩm: <span></span></li>
-						</ul>
+							<li>Họ và tên: <span>{{$shipping_id->shipping_name}}</span></li>
+							<li>Địa chỉ email: <span>{{$shipping_id->shipping_email}}</span></li>
+							<li>Số điện thoại: <span>{{$shipping_id->shipping_phone}}</span></li>
+							<li>Địa chỉ:<span>{{$shipping_id->shipping_address}}</span></li>
+							<li>Ghi chú cho sản phẩm: <span>{{$shipping_id->shipping_notes}}</span></li>
 							
-						</div>	
+						</ul>
+					
+					<a  href= "{{URL::to('/order')}}" class="btn btn-primary btn-sm"> ĐẶT HÀNG</a>
+					
+				  </div>	
+				  
 				</div>
+				
 		</div>
+		</div>
+		</div>
+		
+</section>
  @endsection

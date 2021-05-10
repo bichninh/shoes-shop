@@ -107,18 +107,31 @@
 							</td>
 						</tr>
                     @endforeach
-				
+					<tr>
+							<td colspan="4">&nbsp;</td>
+							<td colspan="2">
+								<table class="table table-condensed total-result">
+									<tr>
+										<td>Tổng tiền</td>
+										<td>{{Cart::subtotal().'0'.' vnd'}}</td>
+									</tr>
+									
+									<tr class="shipping-cost">
+										<td>Phí vận chuyển</td>
+										<td>Free</td>										
+									</tr>
+									<tr>
+										<td>Thành tiền</td>
+										<td><span>{{Cart::subtotal().'0'.' vnd'}}</span></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
 					</tbody>
 				
 				</table>
 			
-				<div class="col-sm-7" >
-				       <ul>
-							<li>Tổng: <span>{{Cart::subtotal().'0'.' vnd'}}</span></li>
-							<li>Phí vận chuyển: <span>Free</span></li>
-							<li>Thành tiền: <span>{{Cart::subtotal().'0'.' vnd'}}</span></li>
-						</ul>
-				</div>
+				
            </div>
 		   <div class="payment-options">
 					<span>

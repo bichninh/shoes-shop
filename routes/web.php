@@ -72,7 +72,7 @@ Route::post('/save-checkout',[UserController ::class, 'save_checkout']);
 Route::post('/login-customer',[UserController ::class, 'login_customer']);
 Route::get('/logout-checkout',[UserController ::class, 'logout_checkout']);
 Route::get('/payment',[UserController ::class, 'payment']);
-//Route::get('/payment',[UserController ::class, 'payment']);
+Route::get('/order',[UserController ::class, 'order']);
 //Route::get('/login-user',[UserController ::class, 'getLogin']);
 //Route::get('/sign-in',[UserController ::class, 'getRegister']);
 //Route::post('/home',[UserController ::class, 'setLogin']);

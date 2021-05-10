@@ -17,6 +17,7 @@ class CreateOrderDetailsTable extends Migration
             $table->increments('id');
             $table->integer('order_id');
             $table->integer('product_id');
+            $table->string('product_name');
             $table->integer('quantily_sale');
             $table->integer('price_unit');
             $table->string('size');
