@@ -41,7 +41,7 @@ class ProductController extends Controller
         "color_id" => "required",
         "image" => "required",
         "price" => "required",
-        "price_new" => "required",
+        
         "quantily" => "required",
         "content" => "required",
         
@@ -55,7 +55,7 @@ class ProductController extends Controller
         "color_id.required" => "Bạn chưa nhập ",
         "image.required" => "Bạn chưa nhập ",
         "price.required" => "Bạn chưa nhập ",
-        "price_new.required" => "Bạn chưa nhập ",
+       
         "quantily.required" => "Bạn chưa nhập ",
         "content.required" => "Bạn chưa nhập ",
         
@@ -67,7 +67,7 @@ class ProductController extends Controller
     $data['size_id']= $request->size_id;
     $data['color_id']= $request->color_id;
     $data['price']= $request->price;
-    $data['price_new']= $request->price_new;
+   
     $data['quantily']= $request->quantily;
     $data['content']= $request->content;
     $data['image']= $request->image; 
@@ -120,7 +120,7 @@ class ProductController extends Controller
          $data['size_id']= $request->size_id;
          $data['color_id']= $request->color_id;
          $data['price']= $request->price;
-         $data['price_new']= $request->price_new;
+        
          $data['quantily']= $request->quantily;
          $data['content']= $request->content;
          $data['image']= $request->image;

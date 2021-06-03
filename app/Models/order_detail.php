@@ -19,4 +19,8 @@ class order_detail extends Model
         'color',
        
     ];
+    protected $primaryKey = 'id';
+    public function product(){
+        return  $this->belongsTo('App\Models\product','product_id');
+      }
 }

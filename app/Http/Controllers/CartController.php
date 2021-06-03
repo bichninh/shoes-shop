@@ -1,14 +1,17 @@
 <?php
 namespace App\Http\Controllers;
 use Cart;
-
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
-{
+{    
+
+   
+   
     public function save_cart(Request $request){
        $productId = $request->productId;
        $quantily= $request->qty;
@@ -19,7 +22,7 @@ class CartController extends Controller
        $data['qty']= $quantily;
        $data['weight']= $product_info->price;
        $data['name']= $product_info->product_name;
-       $data['price']= $product_info->price;
+       $data['price']= number_format($product_info->price, 0,".",",");
        $data['options']['image']= $product_info->image;
        $data['options']['size']= $product_info->size_name;
        $data['options']['color']= $product_info->color_name;

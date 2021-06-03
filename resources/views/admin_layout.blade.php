@@ -123,17 +123,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                 </li>
 				<li class="sub-menu" >
-                    <a href="#">
+                    <a href="{{URL::to('/manage-order')}}">
                         <i class="fa fa-book"></i>
                         <span>Đơn hàng</span>
                     </a>
                 </li>
-                <li class="sub-menu" >
-                    <a href="#">
-                        <i class="fa fa-book"></i>
-                        <span>Chi tiêt các đơn hàng</span>
-                    </a>
-                </li>
+                
               </ul>
 
         </div>

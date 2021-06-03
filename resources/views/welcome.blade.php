@@ -14,6 +14,8 @@
     <link href="{{asset('frontend/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
+   {{-- <link href="{{asset('frontend/css/sweetalert.css')}}" rel="stylesheet">--}}
+    <link href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -234,20 +236,20 @@
                         <div class="brands-name">
                             <ul class="nav nav-pills nav-stacked">
                             @foreach($brand as $key => $brand_product)
-                                <li><a href="{{URL::to('/Thuong_hieu_san_pham/'.$brand_product->brand_id)}}"> <span class="pull-right">(50)</span>{{$brand_product->brand_name}}</a></li>
+                                <li><a href="{{URL::to('/Thuong_hieu_san_pham/'.$brand_product->brand_id)}}"> {{$brand_product->brand_name}}</a></li>
                                 
                                 @endforeach
                          
                         </div>
                     </div><!--/brands_products-->
-
-                 {{--  <div class="price-range"><!--price-range-->
+                 
+                 <!--  <div class="price-range">  price-range
                         <h2>Hiển thị theo giá sản phẩm</h2>
                         <div class="well text-center">
                             <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
                             <b class="pull-left">200.000</b> <b class="pull-right">4.000.000</b>
                         </div>
-                    </div><!--/price-range-->   --}}
+                    </div>/price-range     -->   
                 
 
                     <div class="shipping text-center"><!--shipping-->
@@ -342,5 +344,33 @@
 <script src="{{asset('frontend/js/price-range.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.prettyPhoto.js')}}"></script>
 <script src="{{asset('frontend/js/main.js')}}"></script>
+<script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+
+<!-- <script type="text/javascript">
+    $(document).ready(function(){
+        $('.add-to-cart').click(function(){
+	  var id= $(this).data('id');
+      var cart_product_id = $('.cart_product_id_'+ id).val();
+      var cart_product_name = $('.cart_product_name_' + id).val();
+      var cart_product_image = $('.cart_product_image_' + id).val();
+      var cart_product_price = $('.cart_product_price_'+ id).val();
+      var cart_product_qty = $('.cart_product_qty_' + id).val();
+      
+      var _token = $('input[name="_token"]').val();
+      $.ajax({
+        url: '{{url::to('/add-cart-ajax')}}',
+        method: 'POST',
+        data:{cart_product_id:cart_product_id,cart_product_name:cart_product_name,
+        cart_product_image:cart_product_image,cart_product_price:cart_product_price,
+        cart_product_qty:cart_product_qty, _token:_token},
+        success:function(data){
+        alert(data);
+    }
+        
+
+      });
+        });
+});
+</script>  -->
 </body>
 </html>

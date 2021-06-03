@@ -23,7 +23,7 @@
                               <th scope="col">Color</th>
                               <th scope="col">Image</th>
                               <th scope="col">Price</th>
-                              <th scope="col">Price_new</th>
+                              
                               <th scope="col">Quantily</th>
                               <th scope="col">Content</th>
                               <th scope="col">Create_At</th>
@@ -44,8 +44,8 @@
                               <td>{{$product->color_name}}</td>
                               <td><img src="{{asset('public/uploads/product/'.$product->image)}}" class="img-responsive" width="100px" alt="">{{$product->image}}</td>
                               
-                              <td>{{$product->price}}</td>
-                              <td>{{$product->price_new}}</td>
+                              <td>{{number_format($product->price, 0,".",",")}}</td>
+                              
                               <td>{{$product->quantily}}</td>
                               <td>{{$product->content}}</td>
                               <td>{{$product->created_at}}</td>

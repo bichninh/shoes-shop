@@ -95,15 +95,7 @@
                                     </span>
                                    @enderror
                                 </div>
-                                <div class="form-group">
-                                    <label for="price_new">Giá mới</label>
-                                    <input id="price_new" type="text" class=" form-control @error('price_new') is-invalid @enderror" placeholder="GIÁ NEW" name="price_new" required autocomplete="price_new">
-                                    @error('price_new')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                   @enderror
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="quantily">Số lượng</label>
                                     <input id="quantily" type="text" class=" form-control @error('quantily') is-invalid @enderror" placeholder="SỐ LƯỢNG" name="quantily" required autocomplete="quantily">

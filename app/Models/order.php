@@ -18,4 +18,6 @@ class order extends Model
         'status',
        
     ];
+    protected $primaryKey = 'order_id';
+    
 }

@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('color_id');
             $table->string('image');
             $table->integer('price');
-            $table->integer('price_new');
+            
             $table->integer('quantily');
             $table->longText('content');
             $table->timestamps();

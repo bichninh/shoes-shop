@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,14 +66,14 @@ Route::post('/store-user',[UserController ::class, 'store']);
 Route::get('/edit-user/{id}',[UserController ::class, 'edit']);
 Route::post('/update-user/{id}',[UserController ::class, 'update']);
 Route::get('/delete-user/{id}',[UserController ::class, 'delete']);
-Route::get('/login-checkout',[UserController ::class, 'login_checkout']);
-Route::post('/add-customer',[UserController ::class, 'add_customer']);
-Route::get('/checkout',[UserController ::class, 'checkout']);
-Route::post('/save-checkout',[UserController ::class, 'save_checkout']);
-Route::post('/login-customer',[UserController ::class, 'login_customer']);
-Route::get('/logout-checkout',[UserController ::class, 'logout_checkout']);
-Route::get('/payment',[UserController ::class, 'payment']);
-Route::get('/order',[UserController ::class, 'order']);
+//Route::get('/login-checkout',[UserController ::class, 'login_checkout']);
+//Route::post('/add-customer',[UserController ::class, 'add_customer']);
+//Route::get('/checkout',[UserController ::class, 'checkout']);
+//Route::post('/save-checkout',[UserController ::class, 'save_checkout']);
+//Route::post('/login-customer',[UserController ::class, 'login_customer']);
+//Route::get('/logout-checkout',[UserController ::class, 'logout_checkout']);
+//Route::get('/payment',[UserController ::class, 'payment']);
+//Route::get('/order',[UserController ::class, 'order']);
 //Route::get('/login-user',[UserController ::class, 'getLogin']);
 //Route::get('/sign-in',[UserController ::class, 'getRegister']);
 //Route::post('/home',[UserController ::class, 'setLogin']);
@@ -84,5 +85,22 @@ Route::post('/save-cart',[CartController ::class, 'save_cart']);
 Route::get('/show-cart',[CartController ::class, 'show_cart']);
 Route::get('/delete-to-cart/{rowId}',[CartController ::class, 'delete_to_cart']);
 Route::post('/update-cart-quanlity',[CartController ::class, 'update_cart_quanlity']);
-//checkout
+Route::post('/add-cart-ajax',[CartController ::class, 'add_cart_ajax']);
+//Route::get('/gio-hang',[CartController ::class, 'gio_hang']);
 
+//checkout
+Route::get('/login-checkout',[CheckoutController ::class, 'login_checkout']);
+Route::post('/add-customer',[CheckoutController ::class, 'add_customer']);
+Route::get('/checkout',[CheckoutController ::class, 'checkout']);
+Route::post('/save-checkout',[CheckoutController ::class, 'save_checkout']);
+Route::post('/login-customer',[CheckoutController ::class, 'login_customer']);
+Route::get('/logout-checkout',[CheckoutController ::class, 'logout_checkout']);
+Route::get('/payment',[CheckoutController ::class, 'payment']);
+Route::get('/order',[CheckoutController ::class, 'order']);
+
+
+//order
+Route::get('/manage-order',[OrderController ::class, 'manage_order']);
+Route::get('/view-order/{order_id}',[OrderController ::class, 'view_order']);
+//Route::get('/edit-order/{order_id}',[CheckoutController ::class, 'edit_order']);
+Route::get('/delete-order/{order_id}',[OrderController ::class, 'delete_order']);

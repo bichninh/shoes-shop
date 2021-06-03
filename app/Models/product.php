@@ -18,11 +18,12 @@ class product extends Model
         'color_id',
         'image',
         'price',
-        'price_new',
+        
         'quantily',
         'content',
         
     ];
+    protected $primaryKey = 'product_id';
     public function category()
     {
     	return $this->belongsTo('App\Models\Category','category_id','id');

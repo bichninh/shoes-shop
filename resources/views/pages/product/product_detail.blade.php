@@ -40,7 +40,7 @@
 							  <form action="{{URL::to('/save-cart')}}" method="POST">
 							     {{csrf_field()}}
 								<span>
-									<span>{{$detail->price}},000 VND</span>
+									<span>{{number_format($detail->price, 0,".",",")}}VND</span>
 									<label>Số lượng:  </label>
 									<input name="qty" type="number" min="1" value="1"/>
 									<input name="productId" type="hidden" value="{{$detail->product_id}}" />
@@ -74,14 +74,14 @@
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="#details" data-toggle="tab">Chi tiết</a></li>
 
-								<li ><a href="#reviews" data-toggle="tab">Đánh giá</a></li>
+							{{--	<li ><a href="#reviews" data-toggle="tab">Đánh giá</a></li> --}}
 							</ul>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="details" >
 								<p> {!!$detail->content!!}</p>
 							</div>
-				<div class="tab-pane fade " id="reviews" >
+				     <!--    <div class="tab-pane fade " id="reviews" >
 								<div class="col-sm-12">
 								
 
@@ -99,7 +99,7 @@
 										</button>
 									</form>
 								</div>
-							</div>
+							</div> -->
 
 						</div>
 
@@ -119,7 +119,7 @@
 										 <div class="single-products">
                                             <div class="productinfo text-center">
                                               <img src="{{URL::to('public/uploads/product/'.$lienquan->image)}}" alt="" />
-                                              <h2>{{$lienquan->price}},000 VND</h2>
+                                              <h2>{{number_format($lienquan->price, 0,".",",")}}VND</h2>
                                              <p>{{$lienquan->product_name}}</p>
                                               <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                           </div>

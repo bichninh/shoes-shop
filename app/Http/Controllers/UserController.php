@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 session_start();  
 class UserController extends Controller
-{    
-    public function login_checkout(){
+{   
+   /* public function login_checkout(){
       $categories =DB::table('categories')->orderby('id','asc')->get();
       $brand_product= DB::table('brands')->orderby('brand_id','asc')->get();
         return view('pages.checkout.login_checkout')->with('category',$categories)->with('brand',$brand_product);
@@ -34,7 +34,7 @@ class UserController extends Controller
         $user->phone       = $request->phone ;
         $user->address      = $request->address;
         $user->save();
-*/
+
      Session::put('username',$request->username);
      return Redirect::to('/checkout');
     }
@@ -117,9 +117,9 @@ class UserController extends Controller
        return Redirect::to('/login-checkout');
 
 
-    }
+    }*/
     
-    public function getLogin(){
+    /*public function getLogin(){
         return view('auth.login');
 
     }
@@ -151,7 +151,7 @@ class UserController extends Controller
            return redirect()->back()->with('message', "Username hoặc mật khẩu sai!");
             
             //đăng nhập thất bại hiển thị đăng nhập thất bại
-        } */
+        } 
        $username= $request->username ;
        $password= $request->password;
        $result= DB::table('users')-> where('username',$username)-> where('password',$password)->first();
@@ -203,6 +203,7 @@ class UserController extends Controller
 
 
     }
+    */
 
 
     private $cate;

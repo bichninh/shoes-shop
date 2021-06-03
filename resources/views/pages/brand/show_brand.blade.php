@@ -9,9 +9,9 @@
                 <div class="single-products">
                     <div class="productinfo text-center">
                     <img src="{{URL::to('public/uploads/product/'.$by_id->image)}}" alt="" />
-                        <h2>{{$by_id->price}},000 VND</h2>
+                        <h2>{{number_format($by_id->price, 0,".",",")}} VND</h2>
                         <p>{{$by_id->product_name}}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="{{URL::to('/Chi_tiet_san_pham/'.$by_id->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết sản phẩm</a>
                     </div>
                 
                 </div>

@@ -81,7 +81,7 @@
 								
 							</td>
 							<td class="cart_price">
-								<p>{{number_format($v_content->price).',000 '.'vnd'}}</p>
+								<p>{{number_format($v_content->price,0,".",",")}},000vnd</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -97,7 +97,7 @@
 								<p class="cart_total_price">
 								<?php
 								$subtotal= $v_content->price * $v_content->qty;
-								echo number_format($subtotal).',000'.'vnd';
+								echo number_format($subtotal,0,".",",").",000vnd";
 								?>
 								
 								</p>
@@ -113,7 +113,7 @@
 								<table class="table table-condensed total-result">
 									<tr>
 										<td>Tổng tiền</td>
-										<td>{{Cart::subtotal().'0'.' vnd'}}</td>
+										<td>{{Cart::subtotal().'0'}}vnd</td>
 									</tr>
 									
 									<tr class="shipping-cost">
@@ -122,7 +122,7 @@
 									</tr>
 									<tr>
 										<td>Thành tiền</td>
-										<td><span>{{Cart::subtotal().'0'.' vnd'}}</span></td>
+										<td><span>{{Cart::subtotal().'0'}}vnd</span></td>
 									</tr>
 								</table>
 							</td>
@@ -133,15 +133,6 @@
 			
 				
            </div>
-		   <div class="payment-options">
-					<span>
-						<label><input type="checkbox"> Thanh toán qua thẻ ATM</label>
-					</span>
-					<span>
-						<label><input type="checkbox"> Thanh toán trực tiếp</label>
-					</span>
-					
-				</div>
-		  </div>
+		  
 	</section> <!--/#cart_items-->
 @endsection
