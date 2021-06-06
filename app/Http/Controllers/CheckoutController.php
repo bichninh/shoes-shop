@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\shipping;
+use App\Models\order;
+use App\Models\product;
+use App\Models\order_detail;
 use Cart;
 use Session;
 use Illuminate\Support\Facades\Redirect;
@@ -77,8 +80,10 @@ class CheckoutController extends Controller
           $data['user_id']=  Session::get('user_id');
           $data['total']= Cart::subtotal();
           $data['status']= "dang cho xu li";
-          //$data['order_date']= getdate();
+          $data['order_date']= NOW();
          $order_id= DB::table('orders')->InsertGetId($data);
+         
+         
          //chèn vào bảng order_detail
          $data_d_order= array();
          $content= Cart::content();
@@ -91,6 +96,18 @@ class CheckoutController extends Controller
           $data_d_order['size']= $v_content->options->size;
           $data_d_order['color']= $v_content->options->color;
           DB::table('order_details')->InsertGetId($data_d_order);
+          //cap nhat so luong
+          $order_detail= order_detail::where('order_id',$order_id)->get();
+          $a=product::where('product_id', $v_content->id)->get();
+          foreach($order_detail as $ord){
+              foreach($a as $b){
+                   $soluong= $b->quantily - $ord->quantily_sale;
+                  product::where('product_id', $v_content->id)->update(['quantily'=>$soluong]);
+              }
+              
+            }
+          
+         
           
          }
          Cart::destroy();

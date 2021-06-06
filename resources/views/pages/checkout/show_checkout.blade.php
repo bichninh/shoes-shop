@@ -24,14 +24,24 @@
 							<p>Thông tin để gửi hàng</p>
 							<div class="form-one">
 								<form action="{{URL::to('/save-checkout')}}" method="POST">
-                                {{csrf_field()}}
-                                     <input type="text" value="{{$user_id->username}}" name="shipping_name" placeholder="UserName*">
-									 <input type="email" value="{{$user_id->email}}"name="shipping_email" placeholder="Email*">
-									 <input type="text" value="{{$user_id->phone}}" name="shipping_phone" placeholder="Điện thoại*"/>
-							         <input type="text" value="{{$user_id->address}}" name="shipping_address" placeholder="Địa chỉ*"/>
-                                     <textarea name="shipping_notes"  placeholder="Ghi chú gửi hàng" rows="16"></textarea>
+                                @csrf
+								
+                                     <input  type="text" value="{{$user_id->username}}" name="shipping_name"
+									   placeholder="Username*" required autocomplete="shipping_name">
+									  
+							
+									 <input  type="email" value="{{$user_id->email}}"name="shipping_email" 
+									  placeholder="Email*" required autocomplete="shipping_email">
+									
+								
+									 <input type="text" value="{{$user_id->phone}}" name="shipping_phone" placeholder="Điện thoại*" required autocomplete="shipping_phone"/>
+							         <input type="text" value="{{$user_id->address}}" name="shipping_address" placeholder="Địa chỉ*" required autocomplete="shipping_address"/>
+									 
+                                     <textarea   name="shipping_notes"  placeholder="Ghi chú gửi hàng" rows="16" required autocomplete="shipping_notes"></textarea>
+								      
 									 <input type="submit" value="Gửi" class="btn btn-primary btn-sm">
-								</form>
+								</form> 
+
 							</div>
 						
 						</div>
@@ -81,7 +91,7 @@
 								
 							</td>
 							<td class="cart_price">
-								<p>{{number_format($v_content->price,0,".",",")}},000vnd</p>
+								<p>{{number_format($v_content->price).' '.'vnd'}}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -97,7 +107,7 @@
 								<p class="cart_total_price">
 								<?php
 								$subtotal= $v_content->price * $v_content->qty;
-								echo number_format($subtotal,0,".",",").",000vnd";
+								echo number_format($subtotal).' '.'vnd';
 								?>
 								
 								</p>
@@ -113,7 +123,7 @@
 								<table class="table table-condensed total-result">
 									<tr>
 										<td>Tổng tiền</td>
-										<td>{{Cart::subtotal().'0'}}vnd</td>
+										<td>{{Cart::subtotal().' '.'vnd'}}</td>
 									</tr>
 									
 									<tr class="shipping-cost">
@@ -122,7 +132,7 @@
 									</tr>
 									<tr>
 										<td>Thành tiền</td>
-										<td><span>{{Cart::subtotal().'0'}}vnd</span></td>
+										<td><span>{{Cart::subtotal().' '.'vnd'}}</span></td>
 									</tr>
 								</table>
 							</td>

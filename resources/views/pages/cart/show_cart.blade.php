@@ -47,7 +47,7 @@
 								
 							</td>
 							<td class="cart_price">
-								<p>{{number_format($v_content->price,0,".",",")}}vnd</p>
+								<p>{{number_format($v_content->price).' '.'vnd'}}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -63,7 +63,7 @@
 								<p class="cart_total_price">
 								<?php
 								$subtotal= $v_content->price * $v_content->qty;
-								echo number_format($subtotal,0,".",",").",000vnd";
+								echo number_format($subtotal).' '.'vnd';
 								?>
 								
 								</p>
@@ -91,16 +91,17 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Tổng <span>{{Cart::subtotal().'0'}}vnd</span></li>
+							<li>Tổng <span>{{Cart::subtotal().' '.'vnd'}}</span></li>
 							<li>Phí vận chuyển <span>Free</span></li>
-							<li>Thành tiền <span>{{Cart::subtotal().'0'}}vnd</span></li>
+							<li>Thành tiền <span>{{Cart::subtotal().' '.'vnd'}}</span></li>
 						</ul>
 							{{-- <a class="btn btn-default update" href="">Update</a> --}}
 							<?php
                             $user_id= Session::get('user_id');
+							
+							if (sizeof(Cart::content()) > 0 ){
                             if( $user_id!= NULL){
-
-                            ?>
+						     ?>
                            	<a class="btn btn-default check_out" href="{{URL::to('/checkout')}}">Thanh toán</a>
                             <?php
                             }else{
@@ -108,7 +109,12 @@
                             <a class="btn btn-default check_out" href="{{URL::to('/login-checkout')}}">Thanh toán</a>
                            <?php
                             }
-                            ?>
+						   }else{
+						   ?>
+						   <a  onclick="return confirm('Giỏ hàng đang trống không thể đặt hàng')"  class="btn btn-default check_out" href="{{URL::to('/show-cart')}}">Thanh toán</a>
+						   <?php
+						   }
+						   ?>
 							
 				</div>
 			</div>

@@ -6,29 +6,29 @@
 						<div class="col-sm-5">
 							<div class="view-product">
 								<img src="{{URL::to('public/uploads/product/'.$detail->image)}}" alt="" />
-								<h3>ZOOM</h3>
+								
 							</div>
-							<div id="similar-product" class="carousel slide" data-ride="carousel">
+							<!--<div id="similar-product" class="carousel slide" data-ride="carousel"> -->
 
 								  <!-- Wrapper for slides -->
-								    <div class="carousel-inner">
+								   <!-- <div class="carousel-inner">
 										<div class="item active">
 										  <a href=""><img src="{{asset('frontend/images/adidas1.jpg')}}" alt=""></a>
 										  <a href=""><img src="{{asset('frontend/images/adidas2.jpg')}}" alt=""></a>
 
 										</div>
-									</div>
+									</div>  -->
 
 								  <!-- Controls -->
 
-							  <a class="left item-control" href="#" data-slide="prev">
+							 <!-- <a class="left item-control" href="#" data-slide="prev">
 								<i class="fa fa-angle-left"></i>
 							  </a>
 							  <a class="right item-control" href="#" data-slide="next">
 								<i class="fa fa-angle-right"></i>
-							  </a>
+							  </a> -->
 
-							</div>
+							<!--</div>  -->
 
 
 						</div>
@@ -37,6 +37,7 @@
 								<img src="" class="newarrival" alt="" />
 								<h1>{{$detail->product_name}}</h1>
 							   <img src="" alt="" />
+						     @if($detail->quantily > 0)
 							  <form action="{{URL::to('/save-cart')}}" method="POST">
 							     {{csrf_field()}}
 								<span>
@@ -50,6 +51,7 @@
 										Thêm vào giỏ hàng
 								    </button>
                                     <p><b>Màu sắc: </b>{{$detail->color_name}}  </p>
+									
 								    <p><b>Size: </b>{{$detail->size_name}} </p>
 								    <p><b>Thương hiệu: </b>{{$detail->brand_name}} </p>
 								     @if($detail->quantily > 0)
@@ -61,9 +63,39 @@
 
 								<a href=""><img src="" class="share img-responsive"  alt="" /></a>
 							   </span>
-							
+							   
 								
 								</form>
+								@else
+								
+								<span>
+									<span>{{number_format($detail->price, 0,".",",")}}VND</span>
+									<label>Số lượng:  </label>
+									<input name="qty" type="number" min="1" value="1"/>
+									<input name="productId" type="hidden" value="{{$detail->product_id}}" />
+                                    <br>
+									<a  onclick="return confirm('Mặt hàng này đã hết')"  type="submit" class="btn btn-fefault cart" >
+										<i class="fa fa-shopping-cart"></i>
+										Thêm vào giỏ hàng
+								    </a>
+                                    <p><b>Màu sắc: </b>{{$detail->color_name}}  </p>
+									
+								    <p><b>Size: </b>{{$detail->size_name}} </p>
+								    <p><b>Thương hiệu: </b>{{$detail->brand_name}} </p>
+								     @if($detail->quantily > 0)
+								    <p><b>Tình trạng: </b> Còn hàng </p>
+								    @else
+								   <p><b>Tình trạng: </b> Hết hàng </p>
+								   @endif
+								  <br>
+
+								<a href=""><img src="" class="share img-responsive"  alt="" /></a>
+							   </span>
+							   
+								
+								
+                             @endif
+								
 							</div><!--/product-information-->
 						</div>
 
@@ -110,8 +142,12 @@
 
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
-
+							<a class="left recommended-item-control" href="#" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							 </a>
+							   
 								<div class="item active">
+								
 							       @foreach($relation as  $lienquan)
 								   
 									<div class="col-sm-3">
@@ -121,7 +157,7 @@
                                               <img src="{{URL::to('public/uploads/product/'.$lienquan->image)}}" alt="" />
                                               <h2>{{number_format($lienquan->price, 0,".",",")}}VND</h2>
                                              <p>{{$lienquan->product_name}}</p>
-                                              <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                              <a href="{{URL::to('/Chi_tiet_san_pham/'.$lienquan->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem chi tiết sản phẩm</a>
                                           </div>
 
                                         </div>
@@ -129,10 +165,8 @@
 									</div>
 									@endforeach
 						      </div>
-
-							   <a class="left recommended-item-control" href="#" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
-							  </a>
+                            <!-- control -->
+							   
 							  <a class="right recommended-item-control" href="#" data-slide="next">
 								<i class="fa fa-angle-right"></i>
 							  </a>

@@ -1,8 +1,8 @@
 @extends('welcome')
 @section('content')
     <div class="features_items"><!--features_items-->
-        <h2 class="title text-center">Sản phẩm mới nhất</h2>
-        @foreach($products as $product)
+        <h2 class="title text-center">kết quả tìm kiếm</h2>
+        @foreach($search_products as $product)
         
         <div class="col-sm-3">
             <div class="product-image-wrapper">
@@ -43,6 +43,6 @@
           
      
     </div><!--features_items-->
-    <div class="d-flex justify-content-center">{{$products->links()}}</div>
+    <div class="d-flex justify-content-center">{{$search_products->links()}}</div>
   
 @endsection

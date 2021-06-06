@@ -50,7 +50,7 @@
 								
 							</td>
 							<td class="cart_price">
-								<p>{{number_format($v_content->price).',000 '.'vnd'}}</p>
+								<p>{{number_format($v_content->price).' '.'vnd'}}</p>
 							</td>
 							<td class="cart_quantity">
 								
@@ -63,7 +63,7 @@
 								<p class="cart_total_price">
 								<?php
 								$subtotal= $v_content->price * $v_content->qty;
-								echo number_format($subtotal).',000'.'vnd';
+								echo number_format($subtotal).' '.'vnd';
 								?>
 								
 								</p>
@@ -89,9 +89,9 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Tổng <span>{{Cart::subtotal().'0'.' vnd'}}</span></li>
+							<li>Tổng <span>{{Cart::subtotal().' '.'vnd'}}</span></li>
 							<li>Phí vận chuyển <span>Free</span></li>
-							<li>Thành tiền <span>{{Cart::subtotal().'0'.' vnd'}}</span></li>
+							<li>Thành tiền <span>{{Cart::subtotal().' '.'vnd'}}</span></li>
 						</ul>
 							
 						</div>	

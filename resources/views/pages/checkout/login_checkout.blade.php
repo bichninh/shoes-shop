@@ -8,8 +8,8 @@
 						<h2>Đăng nhập tài khoản</h2>
 						<form action="{{URL::to('/login-customer')}}" method="POST">
 						{{csrf_field()}}
-							<input type="text"  name="username" placeholder="UserName" />
-							<input type="password" name= "password" placeholder="password" />
+							<input type="text"  name="username" placeholder="UserName" required autocomplete="username"/>
+							<input type="password" name= "password" placeholder="password" required autocomplete="password" />
 							<span>
 								<input type="checkbox" class="checkbox"> 
 								Nhớ đăng nhập
@@ -26,11 +26,11 @@
 						<h2>Đăng kí tài khoản!</h2>
 						<form action="{{URL::to('/add-customer')}}" method ="POST">
 						    {{csrf_field()}}
-							<input type="text" name="username" placeholder="UserName"/>
-							<input type="password" name="password" placeholder="Password"/>
-							<input type="email" name="email" placeholder=" Email "/>
-							<input type="text" name="phone" placeholder="Điện thoại"/>
-							<input type="text" name="address" placeholder="Địa chỉ"/>
+							<input type="text" name="username" placeholder="UserName" required autocomplete="username"/>
+							<input type="password" name="password" placeholder="Password" required autocomplete="password"/>
+							<input type="email" name="email" placeholder=" Email " required autocomplete="email"/>
+							<input type="text" name="phone" placeholder="Điện thoại" required autocomplete="phone"/>
+							<input type="text" name="address" placeholder="Địa chỉ" required autocomplete="address"/>
                             
 							<button type="submit" class="btn btn-default">Đăng kí</button>
 						</form>

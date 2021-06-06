@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 //home
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
+Route::post('/search', [HomeController::class, 'search']);
 
 // backend
 Route::get('/admin',[AdminController::class,'index']);

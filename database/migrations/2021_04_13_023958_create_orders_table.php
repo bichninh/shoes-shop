@@ -17,8 +17,8 @@ class CreateOrdersTable extends Migration
             $table->increments('order_id');
             $table->integer('user_id');
             $table->integer('shipping_id');
-            //$table->date('order_date');
-            $table->integer('total');
+            $table->date('order_date');
+            $table->string('total');
             $table->string('status');
             $table->timestamps();
         });

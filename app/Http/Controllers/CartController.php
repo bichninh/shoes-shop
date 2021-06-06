@@ -22,7 +22,7 @@ class CartController extends Controller
        $data['qty']= $quantily;
        $data['weight']= $product_info->price;
        $data['name']= $product_info->product_name;
-       $data['price']= number_format($product_info->price, 0,".",",");
+       $data['price']= $product_info->price;
        $data['options']['image']= $product_info->image;
        $data['options']['size']= $product_info->size_name;
        $data['options']['color']= $product_info->color_name;
